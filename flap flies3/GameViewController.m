@@ -45,8 +45,8 @@
     y[i] = arc4random() % 529 + 20;
         
     //スピード
-//    speedX[i] = arc4random() % 10 + 5;
-//    speedY[i] = arc4random() % 10 + 5;
+    speedX[i] = arc4random() % 10 + 5;
+    speedY[i] = arc4random() % 10 + 5;
         
     //初期角度
     angles[i] = arc4random() % 360;
@@ -54,8 +54,8 @@
     rad[i] =(angles[i] * M_PI / 180.0);
        
     //実際に進む距離
-    vx[i] = cos(rad[i]) ;
-    vy[i] = sin(rad[i]) ;
+    vx[i] = cos(rad[i]) * speedX[i];
+    vy[i] = sin(rad[i]) * speedY[i];
     
         
     }
@@ -139,14 +139,14 @@
     
     for (int i = 0; i < 10 ; i++) {
         
-     // flies[i].transform = CGAffineTransformRotate(flies[i].transform, M_PI_2);
-    /// flies[i].transform = CGAffineTransformMakeRotation(M_PI_2);
+     flies[i].transform = CGAffineTransformRotate(flies[i].transform, 45.0 * M_PI / 180);
+    //flies[i].transform = CGAffineTransformMakeRotation(M_PI_2);
 
-        flies[i].transform = CGAffineTransformRotate(flies[i].transform,M_PI / 2);
+      //  flies[i].transform = CGAffineTransformRotate(flies[i].transform,M_PI / 2);
 
 
-        vx[i] = cos(rad[i] + M_PI_2) ;
-        vy[i] = sin(rad[i] + M_PI_2) ;
+        vx[i] = cos(rad[i] + M_PI_2) * speedX[i];
+        vy[i] = sin(rad[i] + M_PI_2) * speedY[i];
         
         
     }
