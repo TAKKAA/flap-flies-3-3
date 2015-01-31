@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ResultViewController.h"
 
 @interface GameViewController : UIViewController{
     

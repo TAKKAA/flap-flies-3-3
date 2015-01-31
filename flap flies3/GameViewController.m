@@ -236,7 +236,16 @@
         
         gameOver.hidden = NO;
         
+        [self performSelector:@selector(transition) withObject:nil afterDelay:2.0];
     }
+    
+}
+
+-(void)transition{
+    
+    ResultViewController *ResultView = [self.storyboard instantiateViewControllerWithIdentifier:@"ResultView"];
+    [self presentViewController:ResultView animated:YES completion:nil];
+
     
 }
 

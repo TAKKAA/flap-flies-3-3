@@ -22,7 +22,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CE2-6b-fcK" kind="modal" id="tP8-5a-6cR"/>
+                                    <segue destination="CE2-6b-fcK" kind="presentation" id="tP8-5a-6cR"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -32,6 +32,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="361" y="362"/>
         </scene>
         <!--Game View Controller-->
         <scene sceneID="3zT-4V-lJX">
@@ -75,12 +76,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqS-fF-wwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="852" y="362"/>
+            <point key="canvasLocation" x="767" y="362"/>
         </scene>
-        <!--View Controller-->
+        <!--Result View Controller-->
         <scene sceneID="ckw-LE-9gL">
             <objects>
-                <viewController id="qog-P4-ib7" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ResultView" id="qog-P4-ib7" customClass="ResultViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="hXE-2Q-YO1"/>
                         <viewControllerLayoutGuide type="bottom" id="u9i-ee-jqi"/>
@@ -94,7 +95,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PlM-Q9-PXH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1255" y="362"/>
+            <point key="canvasLocation" x="1163" y="362"/>
         </scene>
     </scenes>
 </document>

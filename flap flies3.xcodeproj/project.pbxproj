@@ -16,6 +16,7 @@
 		1E634EE41A7628B000DAB55A /* flap_flies3Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E634EE31A7628B000DAB55A /* flap_flies3Tests.m */; };
 		1E634EEE1A76291700DAB55A /* fly1.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E634EED1A76291700DAB55A /* fly1.png */; };
 		1E634EF11A76293400DAB55A /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E634EF01A76293400DAB55A /* GameViewController.m */; };
+		1E634EF41A7CBEDA00DAB55A /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E634EF31A7CBEDA00DAB55A /* ResultViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,8 @@
 		1E634EED1A76291700DAB55A /* fly1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fly1.png; sourceTree = "<group>"; };
 		1E634EEF1A76293400DAB55A /* GameViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		1E634EF01A76293400DAB55A /* GameViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		1E634EF21A7CBEDA00DAB55A /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
+		1E634EF31A7CBEDA00DAB55A /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,6 +95,8 @@
 				1E634ECF1A7628B000DAB55A /* ViewController.m */,
 				1E634EEF1A76293400DAB55A /* GameViewController.h */,
 				1E634EF01A76293400DAB55A /* GameViewController.m */,
+				1E634EF21A7CBEDA00DAB55A /* ResultViewController.h */,
+				1E634EF31A7CBEDA00DAB55A /* ResultViewController.m */,
 				1E634ED11A7628B000DAB55A /* Main.storyboard */,
 				1E634ED41A7628B000DAB55A /* Images.xcassets */,
 				1E634ED61A7628B000DAB55A /* LaunchScreen.xib */,
@@ -231,6 +236,7 @@
 				1E634EF11A76293400DAB55A /* GameViewController.m in Sources */,
 				1E634ED01A7628B000DAB55A /* ViewController.m in Sources */,
 				1E634ECD1A7628B000DAB55A /* AppDelegate.m in Sources */,
+				1E634EF41A7CBEDA00DAB55A /* ResultViewController.m in Sources */,
 				1E634ECA1A7628B000DAB55A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +428,7 @@
 				1E634EE91A7628B000DAB55A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1E634EEA1A7628B000DAB55A /* Build configuration list for PBXNativeTarget "flap flies3Tests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +437,7 @@
 				1E634EEC1A7628B000DAB55A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
