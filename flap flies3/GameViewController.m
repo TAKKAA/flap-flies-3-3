@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    //カウントダウン
     countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                       target:self
                                                     selector:@selector(countDown)
@@ -26,6 +28,7 @@
     countdown = 7;
     [countdownTimer fire];
     
+    //アニメーション、秒数のタイマー
     timer = [NSTimer scheduledTimerWithTimeInterval:0.1
                                              target:self
                                            selector:@selector(count)
@@ -34,6 +37,7 @@
     
     count = -7;
     [timer fire];
+    
     
     [self display];
     
@@ -45,8 +49,8 @@
     y[i] = arc4random() % 529 + 20;
         
     //スピード
-    speedX[i] = arc4random() % 10 + 5;
-    speedY[i] = arc4random() % 10 + 5;
+    speedX[i] = arc4random() % 30 + 15;
+    speedY[i] = arc4random() % 30 + 15;
         
     //初期角度
     angles[i] = arc4random() % 360;
@@ -67,11 +71,14 @@
     
 }
 
+//画面初期設定
 -(void)display{
     
     countdownLabel.hidden = NO;
     
     timeLabel.hidden = YES;
+    
+    gameOver.hidden = YES;
     
 }
 
@@ -139,14 +146,12 @@
     
     for (int i = 0; i < 10 ; i++) {
         
-     flies[i].transform = CGAffineTransformRotate(flies[i].transform, 45.0 * M_PI / 180);
-    //flies[i].transform = CGAffineTransformMakeRotation(M_PI_2);
+        float answer = count / 3.0;
+        
+     flies[i].transform = CGAffineTransformRotate(flies[i].transform, answer * M_PI_2);
 
-      //  flies[i].transform = CGAffineTransformRotate(flies[i].transform,M_PI / 2);
-
-
-        vx[i] = cos(rad[i] + M_PI_2) * speedX[i];
-        vy[i] = sin(rad[i] + M_PI_2) * speedY[i];
+        vx[i] = cos(rad[i] + answer * M_PI_2) * speedX[i];
+        vy[i] = sin(rad[i] + answer * M_PI_2) * speedY[i];
         
         
     }
@@ -178,7 +183,7 @@
 
    
     
-    //float amari = fmod(count, 3.0f);
+    float amari = fmodf(count, 3.0);
     
     
     
@@ -187,22 +192,20 @@
         float wx = flies[i].center.x + vx[i];
         float wy = flies[i].center.y + vy[i];
            
-        if (count >= 3.0 && count <= 3.1){
+       
+        if (amari >= 0 && amari <= 0.1){
             
         [self change];
             
-            
-            
- //  flies[i].transform = CGAffineTransformMakeRotation(angles[i] * M_PI / 180.0 + M_PI_2);
-            
-//               flies[i].transform = CGAffineTransformRotate(flies[i].transform, M_PI_2);
-//               vx[i] = cos(rad[i] + M_PI_2) ;
-//               vy[i] = sin(rad[i] + M_PI_2) ;
-//               float wx = flies[i].center.x + vx[i];
-//               float wy = flies[i].center.y + vy[i];
-//               flies[i].center = CGPointMake(wx, wy);
 
         }
+//           if (count >= 6 && count <= 6.1) {
+//               
+//               [self change];
+//           }
+           
+           
+           
         if (wx > 320) {
             
             wx =  0;
@@ -223,6 +226,25 @@
         
         flies[i].center = CGPointMake(wx, wy);
         
+    }
+    
+    if (count > 9.9 && count <= 10.0) {
+        
+        [timer invalidate];
+        
+        [self finish];
+        
+        gameOver.hidden = NO;
+        
+    }
+    
+}
+
+-(void)finish{
+    
+    for (int i = 0; i < 10; i++) {
+        
+        flies[i].userInteractionEnabled = NO;
     }
     
 }

@@ -18,6 +18,9 @@
     
     int countdown;
     
+    //ゲームオーバーラベル
+    IBOutlet UILabel *gameOver;
+    
     //タイマー
     NSTimer *timer;
     
