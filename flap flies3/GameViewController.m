@@ -49,8 +49,8 @@
     y[i] = arc4random() % 529 + 20;
         
     //スピード
-    speedX[i] = arc4random() % 30 + 15;
-    speedY[i] = arc4random() % 30 + 15;
+    speedX[i] = arc4random() % 10 + 5;
+    speedY[i] = arc4random() % 10 + 5;
         
     //初期角度
     angles[i] = arc4random() % 360;
@@ -78,7 +78,7 @@
     
     timeLabel.hidden = YES;
     
-    gameOver.hidden = YES;
+    gameOverLabel.hidden = YES;
     
 }
 
@@ -165,22 +165,6 @@
     
     timeLabel.text = [NSString stringWithFormat:@"%.1f",count];
     
-    if (count < 0) {
-        
-        for (int i = 0; i < 10; i++) {
-            
-            flies[i].userInteractionEnabled = NO;
-        }
-        
-    }else{
-        
-        for (int i = 0; i<10; i++) {
-            
-            flies[i].userInteractionEnabled = YES;
-        }
-        
-    }
-
    
     
     float amari = fmodf(count, 3.0);
@@ -188,6 +172,18 @@
     
     
        for (int i = 0; i < 10; i++) {
+           
+           if (count < 0) {
+                   
+                   flies[i].userInteractionEnabled = NO;
+               
+               
+           }else{
+               
+                   flies[i].userInteractionEnabled = YES;
+               
+           }
+  
         
         float wx = flies[i].center.x + vx[i];
         float wy = flies[i].center.y + vy[i];
@@ -199,12 +195,7 @@
             
 
         }
-//           if (count >= 6 && count <= 6.1) {
-//               
-//               [self change];
-//           }
-           
-           
+
            
         if (wx > 320) {
             
@@ -228,15 +219,23 @@
         
     }
     
-    if (count > 9.9 && count <= 10.0) {
+    if (flies[0].hidden == YES && flies[1].hidden == YES && flies[2].hidden == YES && flies[3].hidden == YES
+        && flies[4].hidden == YES && flies[5].hidden == YES && flies[6].hidden == YES && flies[7].hidden == YES
+        &&flies[8].hidden == YES &&flies[9].hidden == YES) {
+        
+        [timer invalidate];
+        
+    }
+    
+    if (count > 59.9 && count <= 60.0) {
         
         [timer invalidate];
         
         [self finish];
         
-        gameOver.hidden = NO;
+        gameOverLabel.hidden = NO;
         
-        [self performSelector:@selector(transition) withObject:nil afterDelay:2.0];
+        [self performSelector:@selector(transition) withObject:nil afterDelay:2.5];
     }
     
 }
@@ -263,10 +262,11 @@
     UITouch *touch = [touches anyObject];
     
     switch (touch.view.tag) {
+        
         case 0:
             flies[0].hidden = YES;
             break;
-            
+
         case 1:
             flies[1].hidden = YES;
             break;
@@ -310,7 +310,6 @@
         case 9:
             flies[9].hidden = YES;
             break;
-
             
         default:
             break;
