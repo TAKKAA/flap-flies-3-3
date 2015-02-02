@@ -6,6 +6,10 @@
 //  Copyright (c) 2015年 Nakayama Takahito. All rights reserved.
 //
 
+//タイマー変数
+float count;
+
+
 #import <UIKit/UIKit.h>
 #import "ResultViewController.h"
 
@@ -20,7 +24,7 @@
     int countdown;
     
     //ゲームオーバーラベル
-    IBOutlet UILabel *gameOverLabel;
+    IBOutlet UIImageView *gameOverLabel;
     
     //タイマー
     NSTimer *timer;
@@ -28,8 +32,6 @@
     //秒数表示
     IBOutlet UILabel *timeLabel;
     
-    //タイマー変数
-    float count;
     
     //最初の位置
     float x[10];

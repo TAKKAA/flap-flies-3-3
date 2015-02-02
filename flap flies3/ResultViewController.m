@@ -17,6 +17,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    float score = [defaults floatForKey:@"score"];
+    
+    scoreLabel.text = [NSString stringWithFormat:@"%.1f秒",score];
+    
+    float highScore = [defaults floatForKey:@"highScore"];
+    
+    highScoreLabel.text = [NSString stringWithFormat:@"%.1f秒",highScore];
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

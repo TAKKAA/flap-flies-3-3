@@ -25,7 +25,7 @@
                                                     selector:@selector(countDown)
                                                     userInfo:nil
                                                     repeats:YES];
-    countdown = 7;
+    countdown = 6;
     [countdownTimer fire];
     
     //アニメーション、秒数のタイマー
@@ -35,7 +35,7 @@
                                            userInfo:nil
                                             repeats:YES];
     
-    count = -7;
+    count = -6;
     [timer fire];
     
     
@@ -225,9 +225,34 @@
         
         [timer invalidate];
         
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        [defaults setFloat:count forKey:@"score"];
+        
+        [defaults synchronize];
+        
+        float score = [defaults floatForKey:@"score"];
+        
+        float highScore = [defaults floatForKey:@"highScore"];
+        
+       // [defaults setFloat:count forKey:@"highScore"];
+        
+        if (count < highScore) {
+            
+            
+        [defaults setFloat:count forKey:@"highScore"];
+        
+        [defaults synchronize];
+            
+        }
+        
+         [self performSelector:@selector(transition) withObject:nil afterDelay:1.5];
+            
+        
+        
     }
     
-    if (count > 59.9 && count <= 60.0) {
+    if (count > 29.9 && count <= 30.0) {
         
         [timer invalidate];
         
@@ -235,7 +260,7 @@
         
         gameOverLabel.hidden = NO;
         
-        [self performSelector:@selector(transition) withObject:nil afterDelay:2.5];
+        [self performSelector:@selector(transition) withObject:nil afterDelay:1.5];
     }
     
 }

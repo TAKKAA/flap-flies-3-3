@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ResultViewController : UIViewController
+@interface ResultViewController : UIViewController{
+    
+    IBOutlet UILabel *scoreLabel;
+    
+    IBOutlet UILabel *highScoreLabel;
+    
+}
 
 @end
