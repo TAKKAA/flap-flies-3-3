@@ -29,6 +29,19 @@
     highScoreLabel.text = [NSString stringWithFormat:@"%.1f秒",highScore];
     
     
+    //キラキラ
+    
+    star1.hidden = YES;
+    star2.hidden = YES;
+    
+    if (score == highScore) {
+        
+        star1.hidden = NO;
+        star2.hidden = NO;
+        
+    }
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {

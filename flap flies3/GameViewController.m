@@ -49,8 +49,8 @@
     y[i] = arc4random() % 529 + 20;
         
     //スピード
-    speedX[i] = arc4random() % 10 + 5;
-    speedY[i] = arc4random() % 10 + 5;
+//    speedX[i] = arc4random() % 20 + 15;
+//    speedY[i] = arc4random() % 20 + 15;
         
     //初期角度
     angles[i] = arc4random() % 360;
@@ -58,8 +58,8 @@
     rad[i] =(angles[i] * M_PI / 180.0);
        
     //実際に進む距離
-    vx[i] = cos(rad[i]) * speedX[i];
-    vy[i] = sin(rad[i]) * speedY[i];
+    vx[i] = cos(rad[i]);
+    vy[i] = sin(rad[i]);
     
         
     }

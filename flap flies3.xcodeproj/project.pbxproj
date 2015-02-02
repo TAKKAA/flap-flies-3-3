@@ -12,6 +12,10 @@
 		1E0E07B91A7E82E1001342C5 /* flap-flay-01.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E07B71A7E82E1001342C5 /* flap-flay-01.png */; };
 		1E0E07BA1A7E82E1001342C5 /* flap-flay-02.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E07B81A7E82E1001342C5 /* flap-flay-02.png */; };
 		1E0E07BC1A7E87A7001342C5 /* flap-flay-03.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E07BB1A7E87A7001342C5 /* flap-flay-03.png */; };
+		1E0E07BF1A7EFF40001342C5 /* flap-flay-04.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E07BD1A7EFF40001342C5 /* flap-flay-04.png */; };
+		1E0E07C01A7EFF40001342C5 /* flap-flay-05.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E07BE1A7EFF40001342C5 /* flap-flay-05.png */; };
+		1E0E07C21A7F003B001342C5 /* flap-flay-start.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E07C11A7F003B001342C5 /* flap-flay-start.png */; };
+		1E0E07C61A7F0183001342C5 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 1E0E07C51A7F0183001342C5 /* star.png */; };
 		1E634ECA1A7628B000DAB55A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E634EC91A7628B000DAB55A /* main.m */; };
 		1E634ECD1A7628B000DAB55A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E634ECC1A7628B000DAB55A /* AppDelegate.m */; };
 		1E634ED01A7628B000DAB55A /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E634ECF1A7628B000DAB55A /* ViewController.m */; };
@@ -40,6 +44,10 @@
 		1E0E07B71A7E82E1001342C5 /* flap-flay-01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flap-flay-01.png"; sourceTree = "<group>"; };
 		1E0E07B81A7E82E1001342C5 /* flap-flay-02.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flap-flay-02.png"; sourceTree = "<group>"; };
 		1E0E07BB1A7E87A7001342C5 /* flap-flay-03.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flap-flay-03.png"; sourceTree = "<group>"; };
+		1E0E07BD1A7EFF40001342C5 /* flap-flay-04.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flap-flay-04.png"; sourceTree = "<group>"; };
+		1E0E07BE1A7EFF40001342C5 /* flap-flay-05.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flap-flay-05.png"; sourceTree = "<group>"; };
+		1E0E07C11A7F003B001342C5 /* flap-flay-start.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flap-flay-start.png"; sourceTree = "<group>"; };
+		1E0E07C51A7F0183001342C5 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
 		1E634EC41A7628B000DAB55A /* flap flies3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "flap flies3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1E634EC81A7628B000DAB55A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1E634EC91A7628B000DAB55A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -118,6 +126,10 @@
 		1E634EC71A7628B000DAB55A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1E0E07C51A7F0183001342C5 /* star.png */,
+				1E0E07C11A7F003B001342C5 /* flap-flay-start.png */,
+				1E0E07BD1A7EFF40001342C5 /* flap-flay-04.png */,
+				1E0E07BE1A7EFF40001342C5 /* flap-flay-05.png */,
 				1E0E07BB1A7E87A7001342C5 /* flap-flay-03.png */,
 				1E0E07B71A7E82E1001342C5 /* flap-flay-01.png */,
 				1E0E07B81A7E82E1001342C5 /* flap-flay-02.png */,
@@ -228,13 +240,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				1E0E07B51A7E8139001342C5 /* flap fly-01.png in Resources */,
+				1E0E07C21A7F003B001342C5 /* flap-flay-start.png in Resources */,
 				1E0E07B61A7E8139001342C5 /* flap fly-02.png in Resources */,
 				1E0E07B91A7E82E1001342C5 /* flap-flay-01.png in Resources */,
 				1E634ED31A7628B000DAB55A /* Main.storyboard in Resources */,
+				1E0E07BF1A7EFF40001342C5 /* flap-flay-04.png in Resources */,
 				1E634ED81A7628B000DAB55A /* LaunchScreen.xib in Resources */,
 				1E634ED51A7628B000DAB55A /* Images.xcassets in Resources */,
 				1E0E07BA1A7E82E1001342C5 /* flap-flay-02.png in Resources */,
+				1E0E07C61A7F0183001342C5 /* star.png in Resources */,
 				1E634EEE1A76291700DAB55A /* fly1.png in Resources */,
+				1E0E07C01A7EFF40001342C5 /* flap-flay-05.png in Resources */,
 				1E0E07BC1A7E87A7001342C5 /* flap-flay-03.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

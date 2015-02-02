@@ -14,6 +14,12 @@
     
     IBOutlet UILabel *highScoreLabel;
     
+    IBOutlet UIImageView *star1;
+    IBOutlet UIImageView *star2;
+
+    
+    
+    
 }
 
 @end
