@@ -28,6 +28,12 @@
     
     highScoreLabel.text = [NSString stringWithFormat:@"%.1f秒",highScore];
     
+    if (score > 59.9 && score <= 60.0) {
+        
+        scoreLabel.text = @"記録なし";
+        
+    }
+    
     
     //キラキラ
     
@@ -40,6 +46,8 @@
         star2.hidden = NO;
         
     }
+    
+    
     
     
 }

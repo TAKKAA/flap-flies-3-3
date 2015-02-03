@@ -18,7 +18,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcD-gy-EbJ">
                                 <rect key="frame" x="78" y="278" width="159" height="49"/>
-                                <state key="normal" title="スタート" image="flap-flay-start.png"/>
+                                <state key="normal" title="スタート" image="flap-flay-01.png"/>
                                 <connections>
                                     <segue destination="CE2-6b-fcK" kind="presentation" id="tP8-5a-6cR"/>
                                 </connections>
@@ -26,18 +26,27 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fly1.png" translatesAutoresizingMaskIntoConstraints="NO" id="8rb-Om-FuC">
                                 <rect key="frame" x="90" y="115" width="135" height="135"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flap fly-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="8LZ-aI-n7o">
+                                <rect key="frame" x="28" y="37" width="273" height="54"/>
+                            </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flap fly-02.png" translatesAutoresizingMaskIntoConstraints="NO" id="Kwe-oI-8Tb">
                                 <rect key="frame" x="13" y="370" width="288" height="57"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iuW-ts-9OA">
+                                <rect key="frame" x="28" y="518" width="60" height="30"/>
+                                <state key="normal" title="リセット">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="reset:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YgJ-32-94k"/>
+                                </connections>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fye-54-4fP">
-                                <rect key="frame" x="93" y="465" width="128" height="50"/>
+                                <rect key="frame" x="96" y="464" width="128" height="50"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="40"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="flap fly-01.png" translatesAutoresizingMaskIntoConstraints="NO" id="8LZ-aI-n7o">
-                                <rect key="frame" x="20" y="28" width="281" height="63"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -133,18 +142,18 @@
                                     <segue destination="vXZ-lx-hvc" kind="presentation" id="abG-uC-SZl"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-qg-9KX">
+                                <rect key="frame" x="16" y="336" width="72" height="86"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="nwc-Qz-W6Z">
+                                <rect key="frame" x="232" y="294" width="72" height="86"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="〜秒" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0N2-JR-taD">
-                                <rect key="frame" x="118" y="336" width="84" height="47"/>
+                                <rect key="frame" x="69" y="336" width="183" height="47"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="nwc-Qz-W6Z">
-                                <rect key="frame" x="232" y="294" width="72" height="86"/>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-qg-9KX">
-                                <rect key="frame" x="16" y="336" width="72" height="86"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -164,11 +173,11 @@
     <resources>
         <image name="flap fly-01.png" width="208" height="50"/>
         <image name="flap fly-02.png" width="208" height="43"/>
+        <image name="flap-flay-01.png" width="158" height="47"/>
         <image name="flap-flay-02.png" width="275" height="45"/>
         <image name="flap-flay-03.png" width="95" height="50"/>
         <image name="flap-flay-04.png" width="153" height="39"/>
         <image name="flap-flay-05.png" width="116" height="39"/>
-        <image name="flap-flay-start.png" width="156" height="45"/>
         <image name="fly1.png" width="144" height="150"/>
         <image name="star.png" width="270" height="333"/>
     </resources>

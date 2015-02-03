@@ -13,6 +13,8 @@
     IBOutlet UILabel *highScoreLabel;
 }
 
+-(IBAction)reset:(id)sender;
+
 
 @end
 

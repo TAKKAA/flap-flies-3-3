@@ -235,6 +235,12 @@
         
         float highScore = [defaults floatForKey:@"highScore"];
         
+        if (highScore == 0.0) {
+            
+            [defaults setFloat:count forKey:@"highScore"];
+            
+        }
+        
        // [defaults setFloat:count forKey:@"highScore"];
         
         if (count < highScore) {
@@ -252,13 +258,17 @@
         
     }
     
-    if (count > 29.9 && count <= 30.0) {
+    if (count > 59.9 && count <= 60.0) {
         
         [timer invalidate];
         
         [self finish];
         
         gameOverLabel.hidden = NO;
+        
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        
+        [defaults setFloat:count forKey:@"score"];
         
         [self performSelector:@selector(transition) withObject:nil afterDelay:1.5];
     }
