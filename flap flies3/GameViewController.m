@@ -49,18 +49,17 @@
     y[i] = arc4random() % 529 + 20;
         
     //スピード
-//    speedX[i] = arc4random() % 20 + 15;
-//    speedY[i] = arc4random() % 20 + 15;
+    speedX[i] = arc4random() % 20 + 15;
+    speedY[i] = arc4random() % 20 + 15;
         
     //初期角度
     angles[i] = arc4random() % 360;
     //初期角度（π）
-    rad[i] =(angles[i] * M_PI / 180.0);
+    rad[i] =(angles[i] * M_PI / 360);
        
     //実際に進む距離
-    vx[i] = cos(rad[i]);
-    vy[i] = sin(rad[i]);
-    
+    vx[i] = cos(rad[i]) * speedX[i]/20;
+    vy[i] = sin(rad[i]) * speedY[i]/20;
         
     }
     
@@ -68,6 +67,14 @@
     [self makeFly];
     
     
+    
+//    float i=28;
+//    for(int j=0;j<10;j++){
+//        i+=90;
+//        NSLog(@"%.2f",i);
+//        if(i>360)i-=360;
+//        NSLog(@"%.2f",i);
+//    }
     
 }
 
@@ -88,10 +95,10 @@
     
     flyNumber[i] = [UIImage imageNamed:@"fly1.png"];
     flies[i] = [[UIImageView alloc] initWithImage:flyNumber[i]];
-    flies[i].transform = CGAffineTransformMakeRotation(M_PI_2);
     flies[i].tag = i;
     flies[i].frame = CGRectMake(x[i], y[i], 40, 40);
-    flies[i].transform = CGAffineTransformRotate(flies[i].transform, angles[i] * M_PI / 180.0);
+    flies[i].transform = CGAffineTransformMakeRotation(M_PI_2);
+    flies[i].transform = CGAffineTransformRotate(flies[i].transform, rad[i]);
     [self.view addSubview:flies[i]];
         
     }
@@ -146,13 +153,16 @@
     
     for (int i = 0; i < 10 ; i++) {
         
-        float answer = count / 3.0;
+        //float answer = count / 3.0;
         
-     flies[i].transform = CGAffineTransformRotate(flies[i].transform, answer * M_PI_2);
+     flies[i].transform = CGAffineTransformRotate(flies[i].transform,  M_PI_4);
+        angles[i]+=90;
+//        if(angles[i]>=360)angles[i]-=360;
+//        NSLog(@"%.2f",angles[i]);
+        rad[i]=(angles[i] * M_PI / 360);
 
-        vx[i] = cos(rad[i] + answer * M_PI_2) * speedX[i];
-        vy[i] = sin(rad[i] + answer * M_PI_2) * speedY[i];
-        
+        vx[i] = cos(rad[i]) * speedX[i]/20;
+        vy[i] = sin(rad[i]) * speedY[i]/20;
         
     }
     
@@ -187,34 +197,69 @@
         
         float wx = flies[i].center.x + vx[i];
         float wy = flies[i].center.y + vy[i];
+        
+           if (count > 3) {
+               
            
-       
         if (amari >= 0 && amari <= 0.1){
             
         [self change];
-            
 
         }
+               
+           }
+           
+       
 
            
-        if (wx > 320) {
-            
-            wx =  0;
-        }
-        if (wx < 0) {
-            
-            wx = 320;
-        }
-        if (wy > 568) {
-            
-            wy = 0;
-        }
-        if (wy < 0) {
-            
-            wy = 568;
+           if (wx > 320) {
+               
+               wx =  0;
+           }
+           if (wx < 0) {
+               
+               wx = 320;
+           }
+           if (wy > 568) {
+               
+               wy = 0;
+           }
+           if (wy < 0) {
+               
+               wy = 568;
+               
+           }
 
-        }
-        
+           
+//           if(flies[i].center.x < 0)vx[i]*=-1;
+//           if(flies[i].center.y < 0)vy[i]*=-1;
+//           if(flies[i].center.x > 320)vx[i]*=-1;
+//           if(flies[i].center.y > 568)vy[i]*=-1;
+           
+           
+//           if(wx < 0)vx[i]*=-1;
+//           if(wy < 0)vy[i]*=-1;
+//           if(wx > 320)vx[i]*=-1;
+//           if(wy > 568)vy[i]*=-1;
+           
+//           float kanna = angles[i];
+//           if(kanna<=180){
+//               kanna*=2;
+//           }else{
+//               kanna=(360-kanna)*-2;
+//           }
+//           
+//           
+//           if(wx < 0||wx > 320){
+//               vx[i]*=-1;
+//               flies[i].transform = CGAffineTransformRotate(flies[i].transform,  kanna*M_PI/360);
+//           }
+//           if(wy < 0||wy > 568){
+//               vy[i]*=-1;
+//               flies[i].transform = CGAffineTransformRotate(flies[i].transform,  kanna*M_PI/360);
+//           }
+
+
         flies[i].center = CGPointMake(wx, wy);
         
     }
@@ -296,60 +341,15 @@
     
     UITouch *touch = [touches anyObject];
     
-    switch (touch.view.tag) {
+    if (count < 0) {
         
-        case 0:
-            flies[0].hidden = YES;
-            break;
-
-        case 1:
-            flies[1].hidden = YES;
-            break;
-
-            
-        case 2:
-            flies[2].hidden = YES;
-            break;
-
-            
-        case 3:
-            flies[3].hidden = YES;
-            break;
-            
-            
-        case 4:
-            flies[4].hidden = YES;
-            break;
-            
-            
-        case 5:
-            flies[5].hidden = YES;
-            break;
-            
-
-        case 6:
-            flies[6].hidden = YES;
-            break;
-            
-
-        case 7:
-            flies[7].hidden = YES;
-            break;
-            
-
-        case 8:
-            flies[8].hidden = YES;
-            break;
-            
-
-        case 9:
-            flies[9].hidden = YES;
-            break;
-            
-        default:
-            break;
-    }
+//        flies[touch.view.tag].hidden = NO;
+        
+    }else{
     
+    flies[touch.view.tag].hidden=YES;
+    
+    }
     
     
 }

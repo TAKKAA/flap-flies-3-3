@@ -36,6 +36,8 @@ float count;
     //最初の位置
     float x[10];
     float y[10];
+    float pos_x[10];
+    float pos_y[10];
     
     float vx[10];
     float vy[10];
@@ -48,6 +50,7 @@ float count;
     
     UIImage *flyNumber[10];
     UIImageView *flies[10];
+    
     
 }
 
