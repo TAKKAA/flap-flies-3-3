@@ -34,22 +34,24 @@ float count;
     
     
     //最初の位置
-    float x[10];
-    float y[10];
-    float pos_x[10];
-    float pos_y[10];
+    float x[15];
+    float y[15];
+//    float pos_x[10];
+//    float pos_y[10];
     
-    float vx[10];
-    float vy[10];
+    float vx[15];
+    float vy[15];
     
-    float angles[10];
-    float rad[10];
+    float angles[15];
+    float rad[15];
     
-    float speedX[10];
-    float speedY[10];
+//    float bound[10];
     
-    UIImage *flyNumber[10];
-    UIImageView *flies[10];
+    float speedX[15];
+    float speedY[15];
+    
+    UIImage *flyNumber[15];
+    UIImageView *flies[15];
     
     
 }

@@ -42,7 +42,7 @@
     [self display];
     
     
-    for (int i = 0; i<10; i++) {
+    for (int i = 0; i<15; i++) {
      
     //位置
     x[i] = arc4random() % 261 + 20;
@@ -55,11 +55,11 @@
     //初期角度
     angles[i] = arc4random() % 360;
     //初期角度（π）
-    rad[i] =(angles[i] * M_PI / 360);
+    rad[i] =(angles[i] * M_PI / 180);
        
     //実際に進む距離
-    vx[i] = cos(rad[i]) * speedX[i]/20;
-    vy[i] = sin(rad[i]) * speedY[i]/20;
+    vx[i] = cos(rad[i]) * speedX[i];
+    vy[i] = sin(rad[i]) * speedY[i];
         
     }
     
@@ -78,6 +78,11 @@
     
 }
 
+- (BOOL)prefersStatusBarHidden
+{
+    return YES;
+}
+
 //画面初期設定
 -(void)display{
     
@@ -91,11 +96,11 @@
 
 -(void)makeFly{
     
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 15; i++) {
     
     flyNumber[i] = [UIImage imageNamed:@"fly1.png"];
     flies[i] = [[UIImageView alloc] initWithImage:flyNumber[i]];
-    flies[i].tag = i;
+    flies[i].tag = i + 1;
     flies[i].frame = CGRectMake(x[i], y[i], 40, 40);
     flies[i].transform = CGAffineTransformMakeRotation(M_PI_2);
     flies[i].transform = CGAffineTransformRotate(flies[i].transform, rad[i]);
@@ -137,13 +142,9 @@
         
         [countdownTimer invalidate];
         
-       
-        
-        
         countdownLabel.hidden = YES;
         
         timeLabel.hidden = NO;
-        
         
     }
     
@@ -151,18 +152,16 @@
 
 -(void)change{
     
-    for (int i = 0; i < 10 ; i++) {
+    for (int i = 0; i < 15 ; i++) {
         
         //float answer = count / 3.0;
         
-     flies[i].transform = CGAffineTransformRotate(flies[i].transform,  M_PI_4);
-        angles[i]+=90;
-//        if(angles[i]>=360)angles[i]-=360;
-//        NSLog(@"%.2f",angles[i]);
-        rad[i]=(angles[i] * M_PI / 360);
+     flies[i].transform = CGAffineTransformRotate(flies[i].transform, M_PI/2);
+        angles[i] += 90;
+        rad[i]=(angles[i] * M_PI / 180);
 
-        vx[i] = cos(rad[i]) * speedX[i]/20;
-        vy[i] = sin(rad[i]) * speedY[i]/20;
+        vx[i] = cos(rad[i]) * speedX[i];
+        vy[i] = sin(rad[i]) * speedY[i];
         
     }
     
@@ -177,11 +176,11 @@
     
    
     
-    float amari = fmodf(count, 3.0);
+    float amari = fmodf(count, 1.0);
     
     
     
-       for (int i = 0; i < 10; i++) {
+       for (int i = 0; i < 15; i++) {
            
            if (count < 0) {
                    
@@ -198,7 +197,7 @@
         float wx = flies[i].center.x + vx[i];
         float wy = flies[i].center.y + vy[i];
         
-           if (count > 3) {
+           if (count > 1) {
                
            
         if (amari >= 0 && amari <= 0.1){
@@ -207,10 +206,7 @@
 
         }
                
-           }
-           
-       
-
+        }
            
            if (wx > 320) {
                
@@ -230,43 +226,14 @@
                
            }
 
-           
-//           if(flies[i].center.x < 0)vx[i]*=-1;
-//           if(flies[i].center.y < 0)vy[i]*=-1;
-//           if(flies[i].center.x > 320)vx[i]*=-1;
-//           if(flies[i].center.y > 568)vy[i]*=-1;
-           
-           
-//           if(wx < 0)vx[i]*=-1;
-//           if(wy < 0)vy[i]*=-1;
-//           if(wx > 320)vx[i]*=-1;
-//           if(wy > 568)vy[i]*=-1;
-           
-//           float kanna = angles[i];
-//           if(kanna<=180){
-//               kanna*=2;
-//           }else{
-//               kanna=(360-kanna)*-2;
-//           }
-//           
-//           
-//           if(wx < 0||wx > 320){
-//               vx[i]*=-1;
-//               flies[i].transform = CGAffineTransformRotate(flies[i].transform,  kanna*M_PI/360);
-//           }
-//           if(wy < 0||wy > 568){
-//               vy[i]*=-1;
-//               flies[i].transform = CGAffineTransformRotate(flies[i].transform,  kanna*M_PI/360);
-//           }
-
-
         flies[i].center = CGPointMake(wx, wy);
         
     }
     
     if (flies[0].hidden == YES && flies[1].hidden == YES && flies[2].hidden == YES && flies[3].hidden == YES
         && flies[4].hidden == YES && flies[5].hidden == YES && flies[6].hidden == YES && flies[7].hidden == YES
-        &&flies[8].hidden == YES &&flies[9].hidden == YES) {
+        &&flies[8].hidden == YES && flies[9].hidden == YES && flies[10].hidden == YES && flies[11].hidden == YES
+        && flies[13].hidden == YES && flies[14].hidden == YES) {
         
         [timer invalidate];
         
@@ -286,7 +253,6 @@
             
         }
         
-       // [defaults setFloat:count forKey:@"highScore"];
         
         if (count < highScore) {
             
@@ -299,9 +265,7 @@
         
          [self performSelector:@selector(transition) withObject:nil afterDelay:1.5];
             
-        
-        
-    }
+            }
     
     if (count > 59.9 && count <= 60.0) {
         
@@ -330,7 +294,7 @@
 
 -(void)finish{
     
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 15; i++) {
         
         flies[i].userInteractionEnabled = NO;
     }
@@ -341,15 +305,8 @@
     
     UITouch *touch = [touches anyObject];
     
-    if (count < 0) {
-        
-//        flies[touch.view.tag].hidden = NO;
-        
-    }else{
     
     flies[touch.view.tag].hidden=YES;
-    
-    }
     
     
 }
