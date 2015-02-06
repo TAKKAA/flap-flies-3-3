@@ -18,6 +18,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    number = 0;
+    
     
     //カウントダウン
     countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1
@@ -58,25 +60,14 @@
     rad[i] =(angles[i] * M_PI / 180);
        
     //実際に進む距離
-    vx[i] = cos(rad[i]) * speedX[i];
-    vy[i] = sin(rad[i]) * speedY[i];
+    vx[i] = cos(rad[i]) * speedX[i]/20;
+    vy[i] = sin(rad[i]) * speedY[i]/20;
         
     }
     
-    
     [self makeFly];
     
-    
-    
-//    float i=28;
-//    for(int j=0;j<10;j++){
-//        i+=90;
-//        NSLog(@"%.2f",i);
-//        if(i>360)i-=360;
-//        NSLog(@"%.2f",i);
-//    }
-    
-}
+    }
 
 - (BOOL)prefersStatusBarHidden
 {
@@ -92,22 +83,44 @@
     
     gameOverLabel.hidden = YES;
     
+    backGround.hidden = YES;
+    
+    killLabel.hidden = YES;
+    
 }
 
 -(void)makeFly{
     
     for (int i = 0; i < 15; i++) {
-    
+        
+        if (i < 10) {
+            
     flyNumber[i] = [UIImage imageNamed:@"fly1.png"];
     flies[i] = [[UIImageView alloc] initWithImage:flyNumber[i]];
-    flies[i].tag = i + 1;
+    flies[i].tag = i;
     flies[i].frame = CGRectMake(x[i], y[i], 40, 40);
     flies[i].transform = CGAffineTransformMakeRotation(M_PI_2);
     flies[i].transform = CGAffineTransformRotate(flies[i].transform, rad[i]);
     [self.view addSubview:flies[i]];
+            
+        }
+        
+        if (i >= 10) {
+            
+            flyNumber[i] = [UIImage imageNamed:@"fly2.png"];
+            flies[i] = [[UIImageView alloc] initWithImage:flyNumber[i]];
+            flies[i].tag = i;
+            flies[i].frame = CGRectMake(x[i], y[i], 40, 40);
+            flies[i].transform = CGAffineTransformMakeRotation(M_PI_2 * 0.8);
+            flies[i].transform = CGAffineTransformRotate(flies[i].transform, rad[i]);
+            [self.view addSubview:flies[i]];
+
+            
+        }
+        
+        
         
     }
-    
     
 }
 
@@ -154,14 +167,12 @@
     
     for (int i = 0; i < 15 ; i++) {
         
-        //float answer = count / 3.0;
-        
-     flies[i].transform = CGAffineTransformRotate(flies[i].transform, M_PI/2);
+     flies[i].transform = CGAffineTransformRotate(flies[i].transform, M_PI_2);
         angles[i] += 90;
         rad[i]=(angles[i] * M_PI / 180);
 
-        vx[i] = cos(rad[i]) * speedX[i];
-        vy[i] = sin(rad[i]) * speedY[i];
+        vx[i] = cos(rad[i]) * speedX[i]/20;
+        vy[i] = sin(rad[i]) * speedY[i]/20;
         
     }
     
@@ -174,18 +185,12 @@
     
     timeLabel.text = [NSString stringWithFormat:@"%.1f",count];
     
-   
-    
-    float amari = fmodf(count, 1.0);
-    
-    
     
        for (int i = 0; i < 15; i++) {
            
            if (count < 0) {
                    
                    flies[i].userInteractionEnabled = NO;
-               
                
            }else{
                
@@ -196,17 +201,16 @@
         
         float wx = flies[i].center.x + vx[i];
         float wy = flies[i].center.y + vy[i];
-        
-           if (count > 1) {
-               
            
-        if (amari >= 0 && amari <= 0.1){
+        float amari = fmodf(count, 1.0);
+        
+           
+        if (amari >= 0 && amari < 0.1){
             
         [self change];
 
         }
                
-        }
            
            if (wx > 320) {
                
@@ -230,10 +234,11 @@
         
     }
     
-    if (flies[0].hidden == YES && flies[1].hidden == YES && flies[2].hidden == YES && flies[3].hidden == YES
+    
+    
+    if (flies[0].hidden == YES && flies[1].hidden == YES &&  flies[2].hidden == YES && flies[3].hidden == YES
         && flies[4].hidden == YES && flies[5].hidden == YES && flies[6].hidden == YES && flies[7].hidden == YES
-        &&flies[8].hidden == YES && flies[9].hidden == YES && flies[10].hidden == YES && flies[11].hidden == YES
-        && flies[13].hidden == YES && flies[14].hidden == YES) {
+        &&flies[8].hidden == YES && flies[9].hidden == YES) {
         
         [timer invalidate];
         
@@ -247,15 +252,23 @@
         
         float highScore = [defaults floatForKey:@"highScore"];
         
+        backGround.hidden = NO;
+        
+        backGround.backgroundColor = [UIColor greenColor];
+        
+        backGround.alpha = 0.8;
+        
+        killLabel.hidden = NO;
+        
+        killLabel.text = @"Complete!";
+        
         if (highScore == 0.0) {
             
             [defaults setFloat:count forKey:@"highScore"];
             
         }
         
-        
-        if (count < highScore) {
-            
+        if (score < highScore) {
             
         [defaults setFloat:count forKey:@"highScore"];
         
@@ -263,9 +276,34 @@
             
         }
         
-         [self performSelector:@selector(transition) withObject:nil afterDelay:1.5];
+         [self performSelector:@selector(transition) withObject:nil afterDelay:2.0];
             
-            }
+        }
+    
+    
+    
+    if (flies[10].hidden == YES ||flies[11].hidden == YES ||flies[12].hidden == YES ||flies[13].hidden == YES ||
+        flies[14].hidden == YES) {
+        
+        number = 1;
+        
+        [timer invalidate];
+        
+        [self performSelector:@selector(transition) withObject:nil afterDelay:2.0];
+        
+        [self finish];
+        
+        backGround.backgroundColor = [UIColor redColor];
+        
+        backGround.alpha = 0.8;
+        
+        backGround.hidden = NO;
+        
+        killLabel.hidden = NO;
+        
+        killLabel.text = @"You were killed";
+        
+    }
     
     if (count > 59.9 && count <= 60.0) {
         
@@ -305,9 +343,15 @@
     
     UITouch *touch = [touches anyObject];
     
+    if (count < 0) {
+        
+    }else{
     
-    flies[touch.view.tag].hidden=YES;
-    
+    flies[touch.view.tag].hidden = YES;
+        
+        NSLog(@"%long",touch.view.tag);
+        
+    }
     
 }
 

@@ -27,6 +27,7 @@
 		1E634EF11A76293400DAB55A /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E634EF01A76293400DAB55A /* GameViewController.m */; };
 		1E634EF41A7CBEDA00DAB55A /* ResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E634EF31A7CBEDA00DAB55A /* ResultViewController.m */; };
 		1ED2CE1D1A837F56009C6F98 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE1C1A837F56009C6F98 /* Default-568h@2x.png */; };
+		1ED2CE1F1A84C25A009C6F98 /* fly2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE1E1A84C25A009C6F98 /* fly2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		1E634EF21A7CBEDA00DAB55A /* ResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultViewController.h; sourceTree = "<group>"; };
 		1E634EF31A7CBEDA00DAB55A /* ResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultViewController.m; sourceTree = "<group>"; };
 		1ED2CE1C1A837F56009C6F98 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		1ED2CE1E1A84C25A009C6F98 /* fly2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fly2.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 		1E634EC71A7628B000DAB55A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1ED2CE1E1A84C25A009C6F98 /* fly2.png */,
 				1E0E07C51A7F0183001342C5 /* star.png */,
 				1ED2CE1C1A837F56009C6F98 /* Default-568h@2x.png */,
 				1E0E07C11A7F003B001342C5 /* flap-flay-start.png */,
@@ -253,6 +256,7 @@
 				1E634ED51A7628B000DAB55A /* Images.xcassets in Resources */,
 				1E0E07BA1A7E82E1001342C5 /* flap-flay-02.png in Resources */,
 				1E0E07C61A7F0183001342C5 /* star.png in Resources */,
+				1ED2CE1F1A84C25A009C6F98 /* fly2.png in Resources */,
 				1E634EEE1A76291700DAB55A /* fly1.png in Resources */,
 				1E0E07C01A7EFF40001342C5 /* flap-flay-05.png in Resources */,
 				1E0E07BC1A7E87A7001342C5 /* flap-flay-03.png in Resources */,

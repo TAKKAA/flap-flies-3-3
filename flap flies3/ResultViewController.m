@@ -34,9 +34,16 @@
         
     }
     
-    
+    if (number == 1) {
+        
+        scoreLabel.text = @"You were killed";
+        
+        star1.hidden = YES;
+        star2.hidden = YES;
+                
+    }
+        
     //キラキラ
-    
     star1.hidden = YES;
     star2.hidden = YES;
     
