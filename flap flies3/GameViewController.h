@@ -14,6 +14,7 @@ int number;
 
 #import <UIKit/UIKit.h>
 #import "ResultViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface GameViewController : UIViewController{
     
@@ -39,6 +40,9 @@ int number;
     
     //you were killed
     IBOutlet UILabel *killLabel;
+    
+    //効果音
+    AVAudioPlayer *audio;
     
     
     //最初の位置

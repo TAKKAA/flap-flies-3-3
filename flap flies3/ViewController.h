@@ -11,6 +11,8 @@
 @interface ViewController : UIViewController{
     
     IBOutlet UILabel *highScoreLabel;
+    
+    IBOutlet UIImageView *fly2;
 }
 
 -(IBAction)reset:(id)sender;

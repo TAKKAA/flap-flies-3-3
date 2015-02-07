@@ -26,7 +26,7 @@
                                                       target:self
                                                     selector:@selector(countDown)
                                                     userInfo:nil
-                                                    repeats:YES];
+                                                     repeats:YES];
     countdown = 6;
     [countdownTimer fire];
     
@@ -37,38 +37,48 @@
                                            userInfo:nil
                                             repeats:YES];
     
-    count = -6;
+    count = -5.9;
     [timer fire];
     
     
     [self display];
     
+    //効果音
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"fly1" ofType:@"mp3"];
+//    NSURL *url = [NSURL fileURLWithPath:path];
+//    audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+//    [audio prepareToPlay];
+//    [audio setNumberOfLoops:-1];
+//    [audio play];
+    
     
     for (int i = 0; i<15; i++) {
-     
-    //位置
-    x[i] = arc4random() % 261 + 20;
-    y[i] = arc4random() % 529 + 20;
         
-    //スピード
-    speedX[i] = arc4random() % 20 + 15;
-    speedY[i] = arc4random() % 20 + 15;
+        //位置
+        x[i] = arc4random() % 261 + 20;
+        y[i] = arc4random() % 529 + 20;
         
-    //初期角度
-    angles[i] = arc4random() % 360;
-    //初期角度（π）
-    rad[i] =(angles[i] * M_PI / 180);
-       
-    //実際に進む距離
-    vx[i] = cos(rad[i]) * speedX[i]/20;
-    vy[i] = sin(rad[i]) * speedY[i]/20;
+        //スピード
+        speedX[i] = arc4random() % 15 + 15;
+        speedY[i] = arc4random() % 15 + 15;
+        
+        //初期角度
+        angles[i] = arc4random() % 360;
+        //初期角度（π）
+        rad[i] =(angles[i] * M_PI / 180);
+        
+        //実際に進む距離
+        vx[i] = cos(rad[i]) * speedX[i];
+        vy[i] = sin(rad[i]) * speedY[i];
         
     }
     
     [self makeFly];
     
-    }
+}
 
+
+//ステータスバー
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
@@ -95,13 +105,13 @@
         
         if (i < 10) {
             
-    flyNumber[i] = [UIImage imageNamed:@"fly1.png"];
-    flies[i] = [[UIImageView alloc] initWithImage:flyNumber[i]];
-    flies[i].tag = i;
-    flies[i].frame = CGRectMake(x[i], y[i], 40, 40);
-    flies[i].transform = CGAffineTransformMakeRotation(M_PI_2);
-    flies[i].transform = CGAffineTransformRotate(flies[i].transform, rad[i]);
-    [self.view addSubview:flies[i]];
+            flyNumber[i] = [UIImage imageNamed:@"fly1.png"];
+            flies[i] = [[UIImageView alloc] initWithImage:flyNumber[i]];
+            flies[i].tag = i;
+            flies[i].frame = CGRectMake(x[i], y[i], 40, 40);
+            flies[i].transform = CGAffineTransformMakeRotation(M_PI_2);
+            flies[i].transform = CGAffineTransformRotate(flies[i].transform, rad[i]);
+            [self.view addSubview:flies[i]];
             
         }
         
@@ -114,7 +124,7 @@
             flies[i].transform = CGAffineTransformMakeRotation(M_PI_2 * 0.8);
             flies[i].transform = CGAffineTransformRotate(flies[i].transform, rad[i]);
             [self.view addSubview:flies[i]];
-
+            
             
         }
         
@@ -132,21 +142,21 @@
     if (countdown >= 4) {
         
         countdownLabel.text = @"できるだけ早くハエを駆除しろ";
-        countdownLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:40];
+        countdownLabel.font = [UIFont fontWithName:@"Hiragino Mincho ProN" size:40];
         
     }
     
     if (countdown >= 1 && countdown <= 3) {
         
         countdownLabel.text = [NSString stringWithFormat:@"%d",countdown];
-        countdownLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:200];
+        countdownLabel.font = [UIFont fontWithName:@"Hiragino Mincho ProN" size:200];
         
     }
     
     if (countdown == 0) {
         
         countdownLabel.text = @"スタート";
-        countdownLabel.font = [UIFont fontWithName:@"Helvetica-Bold" size:50];
+        countdownLabel.font = [UIFont fontWithName:@"Hiragino Mincho ProN" size:50];
     }
     
     if (countdown == -1) {
@@ -167,12 +177,12 @@
     
     for (int i = 0; i < 15 ; i++) {
         
-     flies[i].transform = CGAffineTransformRotate(flies[i].transform, M_PI_2);
+        flies[i].transform = CGAffineTransformRotate(flies[i].transform, M_PI_2);
         angles[i] += 90;
         rad[i]=(angles[i] * M_PI / 180);
-
-        vx[i] = cos(rad[i]) * speedX[i]/20;
-        vy[i] = sin(rad[i]) * speedY[i]/20;
+        
+        vx[i] = cos(rad[i]) * speedX[i];
+        vy[i] = sin(rad[i]) * speedY[i];
         
     }
     
@@ -186,53 +196,83 @@
     timeLabel.text = [NSString stringWithFormat:@"%.1f",count];
     
     
-       for (int i = 0; i < 15; i++) {
-           
-           if (count < 0) {
-                   
-                   flies[i].userInteractionEnabled = NO;
-               
-           }else{
-               
-                   flies[i].userInteractionEnabled = YES;
-               
-           }
-  
+    for (int i = 0; i < 15; i++) {
+        
+        if (count < 0) {
+            
+            flies[i].userInteractionEnabled = NO;
+            
+        }else{
+            
+            flies[i].userInteractionEnabled = YES;
+            
+        }
+        
         
         float wx = flies[i].center.x + vx[i];
         float wy = flies[i].center.y + vy[i];
-           
+        
         float amari = fmodf(count, 1.0);
         
-           
         if (amari >= 0 && amari < 0.1){
             
-        [self change];
-
+            [self change];
+            
         }
-               
-           
-           if (wx > 320) {
-               
-               wx =  0;
-           }
-           if (wx < 0) {
-               
-               wx = 320;
-           }
-           if (wy > 568) {
-               
-               wy = 0;
-           }
-           if (wy < 0) {
-               
-               wy = 568;
-               
-           }
-
+        
+        if (wx > 320) {
+            
+            wx =  0;
+        }
+        if (wx < 0) {
+            
+            wx = 320;
+        }
+        if (wy > 568) {
+            
+            wy = 0;
+        }
+        if (wy < 0) {
+            
+            wy = 568;
+            
+        }
+        
         flies[i].center = CGPointMake(wx, wy);
         
+        
+        
     }
+    
+    if (flies[10].hidden == YES || flies[11].hidden == YES ||flies[12].hidden == YES || flies[13].hidden == YES ||
+        flies[14].hidden == YES) {
+        
+        number = 1;
+        
+        [timer invalidate];
+        
+        [self performSelector:@selector(transition) withObject:nil afterDelay:2.0];
+        
+        [self finish];
+        
+        backGround.backgroundColor = [UIColor redColor];
+        
+        backGround.alpha = 0.8;
+        
+        backGround.hidden = NO;
+        
+        killLabel.hidden = NO;
+        
+        killLabel.text = @"You were killed";
+        
+        for (int i = 0; i < 10; i++) {
+            
+            flies[i].userInteractionEnabled = NO;
+            
+        }
+        
+    }
+    
     
     
     
@@ -262,6 +302,13 @@
         
         killLabel.text = @"Complete!";
         
+        for (int i = 10; i < 15; i++) {
+            
+            flies[i].userInteractionEnabled = NO;
+            
+            
+        }
+        
         if (highScore == 0.0) {
             
             [defaults setFloat:count forKey:@"highScore"];
@@ -270,40 +317,18 @@
         
         if (score < highScore) {
             
-        [defaults setFloat:count forKey:@"highScore"];
-        
-        [defaults synchronize];
+            [defaults setFloat:count forKey:@"highScore"];
+            
+            [defaults synchronize];
             
         }
-        
-         [self performSelector:@selector(transition) withObject:nil afterDelay:2.0];
-            
-        }
-    
-    
-    
-    if (flies[10].hidden == YES ||flies[11].hidden == YES ||flies[12].hidden == YES ||flies[13].hidden == YES ||
-        flies[14].hidden == YES) {
-        
-        number = 1;
-        
-        [timer invalidate];
         
         [self performSelector:@selector(transition) withObject:nil afterDelay:2.0];
         
-        [self finish];
-        
-        backGround.backgroundColor = [UIColor redColor];
-        
-        backGround.alpha = 0.8;
-        
-        backGround.hidden = NO;
-        
-        killLabel.hidden = NO;
-        
-        killLabel.text = @"You were killed";
-        
     }
+    
+    
+    
     
     if (count > 59.9 && count <= 60.0) {
         
@@ -326,7 +351,7 @@
     
     ResultViewController *ResultView = [self.storyboard instantiateViewControllerWithIdentifier:@"ResultView"];
     [self presentViewController:ResultView animated:YES completion:nil];
-
+    
     
 }
 
@@ -345,9 +370,14 @@
     
     if (count < 0) {
         
-    }else{
-    
-    flies[touch.view.tag].hidden = YES;
+    }
+    else if (flies[10].hidden == YES || flies[11].hidden == YES ||flies[12].hidden == YES || flies[13].hidden == YES ||
+             flies[14].hidden == YES){
+        
+    }
+    else{
+        
+        flies[touch.view.tag].hidden = YES;
         
         NSLog(@"%long",touch.view.tag);
         
@@ -362,13 +392,13 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 
 @end
