@@ -350,6 +350,7 @@
 -(void)transition{
     
     ResultViewController *ResultView = [self.storyboard instantiateViewControllerWithIdentifier:@"ResultView"];
+    ResultView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:ResultView animated:YES completion:nil];
     
     
