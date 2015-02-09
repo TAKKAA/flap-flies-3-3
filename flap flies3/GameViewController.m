@@ -44,12 +44,12 @@
     [self display];
     
     //効果音
-//    NSString *path = [[NSBundle mainBundle] pathForResource:@"fly1" ofType:@"mp3"];
-//    NSURL *url = [NSURL fileURLWithPath:path];
-//    audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-//    [audio prepareToPlay];
-//    [audio setNumberOfLoops:-1];
-//    [audio play];
+    //    NSString *path = [[NSBundle mainBundle] pathForResource:@"fly1" ofType:@"mp3"];
+    //    NSURL *url = [NSURL fileURLWithPath:path];
+    //    audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    //    [audio prepareToPlay];
+    //    [audio setNumberOfLoops:-1];
+    //    [audio play];
     
     
     for (int i = 0; i<15; i++) {
@@ -68,8 +68,8 @@
         rad[i] =(angles[i] * M_PI / 180);
         
         //実際に進む距離
-        vx[i] = cos(rad[i]) * speedX[i];
-        vy[i] = sin(rad[i]) * speedY[i];
+        vx[i] = cos(rad[i]) * speedX[i]/20;
+        vy[i] = sin(rad[i]) * speedY[i]/20;
         
     }
     
@@ -181,8 +181,8 @@
         angles[i] += 90;
         rad[i]=(angles[i] * M_PI / 180);
         
-        vx[i] = cos(rad[i]) * speedX[i];
-        vy[i] = sin(rad[i]) * speedY[i];
+        vx[i] = cos(rad[i]) * speedX[i]/20;
+        vy[i] = sin(rad[i]) * speedY[i]/20;
         
     }
     
@@ -338,6 +338,12 @@
         
         gameOverLabel.hidden = NO;
         
+        backGround.hidden = NO;
+        
+        backGround.backgroundColor = [UIColor blueColor];
+        
+        backGround.alpha = 0.8;
+        
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
         [defaults setFloat:count forKey:@"score"];
@@ -378,7 +384,11 @@
     }
     else{
         
-        flies[touch.view.tag].hidden = YES;
+        flies[touch.view.tag].image = [UIImage imageNamed:@"dead_fly.png"];
+        
+       [self performSelector:@selector(dead:withEvent:) withObject:nil afterDelay:1.0];
+        
+//        flies[touch.view.tag].hidden = YES;
         
         NSLog(@"%long",touch.view.tag);
         
@@ -386,6 +396,14 @@
     
 }
 
+-(void)dead:(NSSet *)touches withEvent:(UIEvent *)event{
+    
+    UITouch *touch = [touches anyObject];
+    
+       flies[touch.view.tag].hidden = YES;
+    
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

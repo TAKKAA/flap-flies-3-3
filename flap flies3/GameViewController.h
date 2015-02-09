@@ -27,7 +27,7 @@ int number;
     int countdown;
     
     //ゲームオーバーラベル
-    IBOutlet UIImageView *gameOverLabel;
+    IBOutlet UILabel *gameOverLabel;
     
     //タイマー
     NSTimer *timer;

@@ -30,6 +30,7 @@
 		1ED2CE1F1A84C25A009C6F98 /* fly2.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE1E1A84C25A009C6F98 /* fly2.png */; };
 		1ED2CE211A85FBC0009C6F98 /* fly1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE201A85FBC0009C6F98 /* fly1.mp3 */; };
 		1ED2CE231A85FC23009C6F98 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED2CE221A85FC23009C6F98 /* AVFoundation.framework */; };
+		1ED2CE251A87B263009C6F98 /* dead_fly.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE241A87B263009C6F98 /* dead_fly.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,7 @@
 		1ED2CE1E1A84C25A009C6F98 /* fly2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fly2.png; sourceTree = "<group>"; };
 		1ED2CE201A85FBC0009C6F98 /* fly1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = fly1.mp3; sourceTree = "<group>"; };
 		1ED2CE221A85FC23009C6F98 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1ED2CE241A87B263009C6F98 /* dead_fly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dead_fly.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +138,7 @@
 		1E634EC71A7628B000DAB55A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1ED2CE241A87B263009C6F98 /* dead_fly.png */,
 				1ED2CE201A85FBC0009C6F98 /* fly1.mp3 */,
 				1ED2CE1E1A84C25A009C6F98 /* fly2.png */,
 				1E0E07C51A7F0183001342C5 /* star.png */,
@@ -264,6 +267,7 @@
 				1E634ED51A7628B000DAB55A /* Images.xcassets in Resources */,
 				1E0E07BA1A7E82E1001342C5 /* flap-flay-02.png in Resources */,
 				1E0E07C61A7F0183001342C5 /* star.png in Resources */,
+				1ED2CE251A87B263009C6F98 /* dead_fly.png in Resources */,
 				1ED2CE1F1A84C25A009C6F98 /* fly2.png in Resources */,
 				1E634EEE1A76291700DAB55A /* fly1.png in Resources */,
 				1E0E07C01A7EFF40001342C5 /* flap-flay-05.png in Resources */,
