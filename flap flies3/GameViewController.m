@@ -125,10 +125,7 @@
             flies[i].transform = CGAffineTransformRotate(flies[i].transform, rad[i]);
             [self.view addSubview:flies[i]];
             
-            
         }
-        
-        
         
     }
     
@@ -190,11 +187,9 @@
 
 -(void)count{
     
-    
     count += 0.1;
     
     timeLabel.text = [NSString stringWithFormat:@"%.1f",count];
-    
     
     for (int i = 0; i < 15; i++) {
         
@@ -207,7 +202,6 @@
             flies[i].userInteractionEnabled = YES;
             
         }
-        
         
         float wx = flies[i].center.x + vx[i];
         float wy = flies[i].center.y + vy[i];
@@ -274,8 +268,6 @@
     }
     
     
-    
-    
     if (flies[0].hidden == YES && flies[1].hidden == YES &&  flies[2].hidden == YES && flies[3].hidden == YES
         && flies[4].hidden == YES && flies[5].hidden == YES && flies[6].hidden == YES && flies[7].hidden == YES
         &&flies[8].hidden == YES && flies[9].hidden == YES) {
@@ -302,10 +294,10 @@
         
         killLabel.text = @"Complete!";
         
+        
         for (int i = 10; i < 15; i++) {
             
             flies[i].userInteractionEnabled = NO;
-            
             
         }
         
@@ -326,9 +318,6 @@
         [self performSelector:@selector(transition) withObject:nil afterDelay:2.0];
         
     }
-    
-    
-    
     
     if (count > 59.9 && count <= 60.0) {
         
@@ -359,7 +348,6 @@
     ResultView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:ResultView animated:YES completion:nil];
     
-    
 }
 
 -(void)finish{
@@ -386,9 +374,9 @@
         
         flies[touch.view.tag].image = [UIImage imageNamed:@"dead_fly.png"];
         
-       [self performSelector:@selector(dead:withEvent:) withObject:nil afterDelay:1.0];
+        tagNumber = touch.view.tag;
         
-//        flies[touch.view.tag].hidden = YES;
+        [self performSelector:@selector(death) withObject:nil afterDelay:0.5];
         
         NSLog(@"%long",touch.view.tag);
         
@@ -396,16 +384,24 @@
     
 }
 
--(void)dead:(NSSet *)touches withEvent:(UIEvent *)event{
-    
-    UITouch *touch = [touches anyObject];
-    
-       flies[touch.view.tag].hidden = YES;
+-(void)death{
     
     
+    flies[tagNumber].hidden = YES;
+    
+
 }
 
+//-(void)dead:(NSSet *)touches withEvent:(UIEvent *)event{
+//    
+//    UITouch *touch = [touches anyObject];
+//    
+//       flies[touch.view.tag].hidden = YES;
+//    
+//}
+
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }

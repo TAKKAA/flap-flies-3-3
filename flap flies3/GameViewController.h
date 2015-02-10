@@ -18,6 +18,8 @@ int number;
 
 @interface GameViewController : UIViewController{
     
+    NSInteger tagNumber;
+    
     //カウントダウン表示ラベル
     IBOutlet UILabel *countdownLabel;
     
@@ -63,5 +65,7 @@ int number;
     
     
 }
+
+-(void)death;
 
 @end
