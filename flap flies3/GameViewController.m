@@ -18,6 +18,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UIImage *background = [UIImage imageNamed:@"prairie.jpg"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:background];
+    
     number = 0;
     
     
@@ -68,8 +71,8 @@
         rad[i] =(angles[i] * M_PI / 180);
         
         //実際に進む距離
-        vx[i] = cos(rad[i]) * speedX[i]/20;
-        vy[i] = sin(rad[i]) * speedY[i]/20;
+        vx[i] = cos(rad[i]) * speedX[i];
+        vy[i] = sin(rad[i]) * speedY[i];
         
     }
     
@@ -178,8 +181,8 @@
         angles[i] += 90;
         rad[i]=(angles[i] * M_PI / 180);
         
-        vx[i] = cos(rad[i]) * speedX[i]/20;
-        vy[i] = sin(rad[i]) * speedY[i]/20;
+        vx[i] = cos(rad[i]) * speedX[i];
+        vy[i] = sin(rad[i]) * speedY[i];
         
     }
     
@@ -376,7 +379,7 @@
         
         tagNumber = touch.view.tag;
         
-        [self performSelector:@selector(death) withObject:nil afterDelay:0.5];
+        [self performSelector:@selector(death) withObject:nil afterDelay:0.3];
         
         NSLog(@"%long",touch.view.tag);
         
@@ -386,19 +389,9 @@
 
 -(void)death{
     
-    
     flies[tagNumber].hidden = YES;
     
-
 }
-
-//-(void)dead:(NSSet *)touches withEvent:(UIEvent *)event{
-//    
-//    UITouch *touch = [touches anyObject];
-//    
-//       flies[touch.view.tag].hidden = YES;
-//    
-//}
 
 - (void)didReceiveMemoryWarning {
     

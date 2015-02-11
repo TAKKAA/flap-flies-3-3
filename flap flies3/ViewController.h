@@ -7,15 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GameViewController.h"
 
 @interface ViewController : UIViewController{
     
     IBOutlet UILabel *highScoreLabel;
     
     IBOutlet UIImageView *fly2;
+    
+    AVAudioPlayer *audio;
+
 }
 
 -(IBAction)reset:(id)sender;
+
+-(IBAction)start:(id)sender;
 
 
 @end

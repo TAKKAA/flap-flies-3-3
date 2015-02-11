@@ -18,6 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+    UIImage *background = [UIImage imageNamed:@"prairie.jpg"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:background];
+
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     float highScore = [defaults floatForKey:@"highScore"];
@@ -35,6 +39,21 @@
 - (BOOL)prefersStatusBarHidden
 {
     return YES;
+}
+
+-(IBAction)start:(id)sender{
+    
+    GameViewController *GameView = [self.storyboard instantiateViewControllerWithIdentifier:@"Game"];
+    GameView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:GameView animated:YES completion:nil];
+    
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"fly1" ofType:@"mp3"];
+        NSURL *url = [NSURL fileURLWithPath:path];
+        audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        [audio prepareToPlay];
+        [audio setNumberOfLoops:-1];
+        [audio play];
+
 }
 
 

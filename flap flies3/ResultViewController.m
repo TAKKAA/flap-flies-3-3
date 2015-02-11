@@ -18,6 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    UIImage *background = [UIImage imageNamed:@"prairie.jpg"];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:background];
+
+    
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     float score = [defaults floatForKey:@"score"];
