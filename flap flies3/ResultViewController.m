@@ -7,6 +7,7 @@
 //
 
 #import "ResultViewController.h"
+#import "ViewController.h"
 
 @interface ResultViewController ()
 
@@ -38,13 +39,13 @@
         
     }
     
-    if (number == 1) {
+    if (score == 0) {
         
         scoreLabel.text = @"You were killed";
         
         star1.hidden = YES;
         star2.hidden = YES;
-                
+        
     }
         
     //キラキラ
@@ -58,6 +59,23 @@
         
     }
     
+}
+
+-(IBAction)retry:(id)sender{
+    
+    [audio play];
+    
+    GameViewController *GameView = [self.storyboard instantiateViewControllerWithIdentifier:@"Game"];
+    GameView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self presentViewController:GameView animated:YES completion:nil];
+
+}
+
+-(IBAction)end:(id)sender{
+    
+    ViewController *View = [self.storyboard instantiateViewControllerWithIdentifier:@"View"];
+    View.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    [self presentViewController:View animated:YES completion:nil];
 }
 
 //ステータスバー

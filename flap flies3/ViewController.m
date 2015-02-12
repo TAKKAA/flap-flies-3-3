@@ -14,13 +14,55 @@
 
 @implementation ViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    button = [NSTimer scheduledTimerWithTimeInterval:2.0
+                                              target:self
+                                            selector:@selector(onTime)
+                                            userInfo:nil
+                                             repeats:YES];
+    
+}
+
+-(void)onTime{
+    
+    [UIView animateWithDuration:0.6
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         
+                         start.alpha = 0.0;
+                         
+                     }
+                     completion:^(BOOL finishued){
+                         
+    [UIView animateWithDuration:0.6
+                          delay:0.0
+                          options:UIViewAnimationOptionCurveEaseInOut
+                          animations:^{
+                                              
+                         start.alpha = 1.0;
+                                              
+                                          }
+                        completion:nil];
+                         
+                     }];
+    
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    [button isValid];
+//    button = nil;
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
     UIImage *background = [UIImage imageNamed:@"prairie.jpg"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:background];
-
+    
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -47,13 +89,14 @@
     GameView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:GameView animated:YES completion:nil];
     
-        NSString *path = [[NSBundle mainBundle] pathForResource:@"fly1" ofType:@"mp3"];
-        NSURL *url = [NSURL fileURLWithPath:path];
-        audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-        [audio prepareToPlay];
-        [audio setNumberOfLoops:-1];
-        [audio play];
-
+    
+    NSString *path = [[NSBundle mainBundle] pathForResource:@"fly1" ofType:@"mp3"];
+    NSURL *url = [NSURL fileURLWithPath:path];
+    audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+    [audio prepareToPlay];
+    [audio setNumberOfLoops:-1];
+    [audio play];
+    
 }
 
 

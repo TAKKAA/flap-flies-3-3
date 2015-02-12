@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="View" id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -38,7 +38,7 @@
                                 <rect key="frame" x="70" y="272" width="180" height="57"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="45"/>
                                 <state key="normal" title="スタート">
-                                    <color key="titleColor" red="1" green="0.0" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
                                     <action selector="start:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uxu-O9-BQb"/>
@@ -83,6 +83,7 @@
                     <connections>
                         <outlet property="fly2" destination="RHt-Ob-zFW" id="of4-f1-NoO"/>
                         <outlet property="highScoreLabel" destination="Fye-54-4fP" id="Jga-rU-lKf"/>
+                        <outlet property="start" destination="rcD-gy-EbJ" id="k91-pc-5cE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -101,14 +102,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SU9-NI-7x9">
-                                <rect key="frame" x="25" y="28" width="270" height="467"/>
-                                <color key="backgroundColor" red="0.40000000600000002" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="prairie.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="2xd-8I-eHG">
+                                <rect key="frame" x="0.0" y="-3" width="320" height="573"/>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ハエをタップして出来るだけ早くハエを駆除しろ！　　　　　　　　　　　　　　　ただし、ピンク色のハエは毒をもっているから触っちゃダメだよ！　　　　　　60秒以内にピンク色以外の全てのハエを潰せないとタイムオーバーだよ！" translatesAutoresizingMaskIntoConstraints="NO" id="SU9-NI-7x9">
+                                <rect key="frame" x="16" y="112" width="288" height="293"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59W-bO-NcC">
-                                <rect key="frame" x="134" y="518" width="53" height="30"/>
+                                <rect key="frame" x="134" y="444" width="53" height="30"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="20"/>
                                 <state key="normal" title="戻る">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -184,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oqS-fF-wwf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1200" y="195"/>
+            <point key="canvasLocation" x="1156" y="195"/>
         </scene>
         <!--Result View Controller-->
         <scene sceneID="ckw-LE-9gL">
@@ -211,7 +215,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="presentation" modalTransitionStyle="crossDissolve" id="abG-uC-SZl"/>
+                                    <action selector="end:" destination="qog-P4-ib7" eventType="touchUpInside" id="Ima-Uh-ncb"/>
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="star.png" translatesAutoresizingMaskIntoConstraints="NO" id="JzJ-qg-9KX">
@@ -239,13 +243,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9M3-4B-87O">
-                                <rect key="frame" x="16" y="471" width="145" height="43"/>
+                                <rect key="frame" x="11" y="471" width="145" height="43"/>
                                 <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="30"/>
                                 <state key="normal" title="もう一度">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="CE2-6b-fcK" kind="presentation" modalTransitionStyle="flipHorizontal" id="pVO-1f-iPf"/>
+                                    <action selector="retry:" destination="qog-P4-ib7" eventType="touchUpInside" id="Erc-9V-TLQ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -267,9 +271,7 @@
     <resources>
         <image name="fly1.png" width="144" height="150"/>
         <image name="fly2.png" width="142" height="170"/>
+        <image name="prairie.jpg" width="640" height="1136"/>
         <image name="star.png" width="270" height="333"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="zlY-mi-uCN"/>
-    </inferredMetricsTieBreakers>
 </document>

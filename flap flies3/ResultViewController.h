@@ -17,10 +17,10 @@
     
     IBOutlet UIImageView *star1;
     IBOutlet UIImageView *star2;
-
-    
-    
     
 }
+
+-(IBAction)retry:(id)sender;
+-(IBAction)end:(id)sender;
 
 @end

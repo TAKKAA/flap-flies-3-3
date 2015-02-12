@@ -20,10 +20,7 @@
     
     UIImage *background = [UIImage imageNamed:@"prairie.jpg"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:background];
-    
-    number = 0;
-    
-    
+        
     //カウントダウン
     countdownTimer = [NSTimer scheduledTimerWithTimeInterval:1
                                                       target:self
@@ -40,7 +37,7 @@
                                            userInfo:nil
                                             repeats:YES];
     
-    count = -5.9;
+    count = -5.8;
     [timer fire];
     
     
@@ -54,7 +51,6 @@
     //    [audio setNumberOfLoops:-1];
     //    [audio play];
     
-    
     for (int i = 0; i<15; i++) {
         
         //位置
@@ -62,8 +58,8 @@
         y[i] = arc4random() % 529 + 20;
         
         //スピード
-        speedX[i] = arc4random() % 15 + 15;
-        speedY[i] = arc4random() % 15 + 15;
+        speedX[i] = arc4random() % 25 + 15;
+        speedY[i] = arc4random() % 25 + 15;
         
         //初期角度
         angles[i] = arc4random() % 360;
@@ -71,8 +67,8 @@
         rad[i] =(angles[i] * M_PI / 180);
         
         //実際に進む距離
-        vx[i] = cos(rad[i]) * speedX[i];
-        vy[i] = sin(rad[i]) * speedY[i];
+        vx[i] = cos(rad[i]) * speedX[i]/10;
+        vy[i] = sin(rad[i]) * speedY[i]/10;
         
     }
     
@@ -181,8 +177,8 @@
         angles[i] += 90;
         rad[i]=(angles[i] * M_PI / 180);
         
-        vx[i] = cos(rad[i]) * speedX[i];
-        vy[i] = sin(rad[i]) * speedY[i];
+        vx[i] = cos(rad[i]) * speedX[i]/10;
+        vy[i] = sin(rad[i]) * speedY[i]/10;
         
     }
     
@@ -244,13 +240,15 @@
     if (flies[10].hidden == YES || flies[11].hidden == YES ||flies[12].hidden == YES || flies[13].hidden == YES ||
         flies[14].hidden == YES) {
         
-        number = 1;
-        
         [timer invalidate];
         
-        [self performSelector:@selector(transition) withObject:nil afterDelay:2.0];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
-        [self finish];
+        [defaults setFloat:0.0 forKey:@"score"];
+        
+        [self performSelector:@selector(transition) withObject:nil afterDelay:1.5];
+
+         [self finish];
         
         backGround.backgroundColor = [UIColor redColor];
         
@@ -261,6 +259,8 @@
         killLabel.hidden = NO;
         
         killLabel.text = @"You were killed";
+        
+        [audio stop];
         
         for (int i = 0; i < 10; i++) {
             
@@ -296,6 +296,8 @@
         killLabel.hidden = NO;
         
         killLabel.text = @"Complete!";
+        
+        [audio stop];
         
         
         for (int i = 10; i < 15; i++) {

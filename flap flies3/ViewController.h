@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "GameViewController.h"
+#import <AVFoundation/AVFoundation.h>
+
+AVAudioPlayer *audio;
 
 @interface ViewController : UIViewController{
     
@@ -15,8 +18,11 @@
     
     IBOutlet UIImageView *fly2;
     
-    AVAudioPlayer *audio;
-
+    IBOutlet UIButton *start;
+    
+    NSTimer *button;
+    
+    
 }
 
 -(IBAction)reset:(id)sender;

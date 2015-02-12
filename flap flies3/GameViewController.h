@@ -9,11 +9,9 @@
 //タイマー変数
 float count;
 
-int number;
-
-
 #import <UIKit/UIKit.h>
 #import "ResultViewController.h"
+#import "ViewController.h"
 #import <AVFoundation/AVFoundation.h>
 
 @interface GameViewController : UIViewController{
@@ -44,7 +42,7 @@ int number;
     IBOutlet UILabel *killLabel;
     
     //効果音
-    AVAudioPlayer *audio;
+//    AVAudioPlayer *audio;
     
     
     //最初の位置
