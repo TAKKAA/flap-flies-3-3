@@ -32,6 +32,7 @@
 		1ED2CE231A85FC23009C6F98 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1ED2CE221A85FC23009C6F98 /* AVFoundation.framework */; };
 		1ED2CE251A87B263009C6F98 /* dead_fly.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE241A87B263009C6F98 /* dead_fly.png */; };
 		1ED2CE271A8A4018009C6F98 /* prairie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE261A8A4018009C6F98 /* prairie.jpg */; };
+		1ED2CE291A8DEEB9009C6F98 /* button5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE281A8DEEB9009C6F98 /* button5.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +79,7 @@
 		1ED2CE221A85FC23009C6F98 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1ED2CE241A87B263009C6F98 /* dead_fly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dead_fly.png; sourceTree = "<group>"; };
 		1ED2CE261A8A4018009C6F98 /* prairie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = prairie.jpg; sourceTree = "<group>"; };
+		1ED2CE281A8DEEB9009C6F98 /* button5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button5.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +142,7 @@
 		1E634EC71A7628B000DAB55A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1ED2CE281A8DEEB9009C6F98 /* button5.mp3 */,
 				1ED2CE261A8A4018009C6F98 /* prairie.jpg */,
 				1ED2CE241A87B263009C6F98 /* dead_fly.png */,
 				1ED2CE201A85FBC0009C6F98 /* fly1.mp3 */,
@@ -265,6 +268,7 @@
 				1E0E07B91A7E82E1001342C5 /* flap-flay-01.png in Resources */,
 				1E634ED31A7628B000DAB55A /* Main.storyboard in Resources */,
 				1ED2CE1D1A837F56009C6F98 /* Default-568h@2x.png in Resources */,
+				1ED2CE291A8DEEB9009C6F98 /* button5.mp3 in Resources */,
 				1E0E07BF1A7EFF40001342C5 /* flap-flay-04.png in Resources */,
 				1E634ED81A7628B000DAB55A /* LaunchScreen.xib in Resources */,
 				1E634ED51A7628B000DAB55A /* Images.xcassets in Resources */,

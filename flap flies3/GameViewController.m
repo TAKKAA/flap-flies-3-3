@@ -44,12 +44,12 @@
     [self display];
     
     //効果音
-    //    NSString *path = [[NSBundle mainBundle] pathForResource:@"fly1" ofType:@"mp3"];
-    //    NSURL *url = [NSURL fileURLWithPath:path];
-    //    audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    //    [audio prepareToPlay];
-    //    [audio setNumberOfLoops:-1];
-    //    [audio play];
+        NSString *path = [[NSBundle mainBundle] pathForResource:@"fly1" ofType:@"mp3"];
+        NSURL *url = [NSURL fileURLWithPath:path];
+        audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
+        [audio prepareToPlay];
+        [audio setNumberOfLoops:-1];
+        [audio play];
     
     for (int i = 0; i<15; i++) {
         
@@ -58,8 +58,8 @@
         y[i] = arc4random() % 529 + 20;
         
         //スピード
-        speedX[i] = arc4random() % 25 + 15;
-        speedY[i] = arc4random() % 25 + 15;
+        speedX[i] = arc4random() % 15 + 15;
+        speedY[i] = arc4random() % 15 + 15;
         
         //初期角度
         angles[i] = arc4random() % 360;
@@ -67,8 +67,8 @@
         rad[i] =(angles[i] * M_PI / 180);
         
         //実際に進む距離
-        vx[i] = cos(rad[i]) * speedX[i]/10;
-        vy[i] = sin(rad[i]) * speedY[i]/10;
+        vx[i] = cos(rad[i]) * speedX[i];
+        vy[i] = sin(rad[i]) * speedY[i];
         
     }
     
@@ -177,8 +177,8 @@
         angles[i] += 90;
         rad[i]=(angles[i] * M_PI / 180);
         
-        vx[i] = cos(rad[i]) * speedX[i]/10;
-        vy[i] = sin(rad[i]) * speedY[i]/10;
+        vx[i] = cos(rad[i]) * speedX[i];
+        vy[i] = sin(rad[i]) * speedY[i];
         
     }
     
@@ -326,6 +326,8 @@
     
     if (count > 59.9 && count <= 60.0) {
         
+        [audio stop];
+        
         [timer invalidate];
         
         [self finish];
@@ -378,6 +380,8 @@
     else{
         
         flies[touch.view.tag].image = [UIImage imageNamed:@"dead_fly.png"];
+        
+        flies[touch.view.tag].userInteractionEnabled = NO;
         
         tagNumber = touch.view.tag;
         

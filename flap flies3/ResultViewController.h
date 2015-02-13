@@ -18,6 +18,8 @@
     IBOutlet UIImageView *star1;
     IBOutlet UIImageView *star2;
     
+    NSTimer *timer;
+    
 }
 
 -(IBAction)retry:(id)sender;

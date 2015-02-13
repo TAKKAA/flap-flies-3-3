@@ -11,6 +11,8 @@
 #import <AVFoundation/AVFoundation.h>
 
 AVAudioPlayer *audio;
+AVAudioPlayer *startSound;
+
 
 @interface ViewController : UIViewController{
     
@@ -21,6 +23,7 @@ AVAudioPlayer *audio;
     IBOutlet UIButton *start;
     
     NSTimer *button;
+    
     
     
 }

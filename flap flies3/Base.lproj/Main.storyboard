@@ -34,16 +34,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcD-gy-EbJ">
-                                <rect key="frame" x="70" y="272" width="180" height="57"/>
-                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="45"/>
-                                <state key="normal" title="スタート">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="start:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uxu-O9-BQb"/>
-                                </connections>
-                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fly2.png" translatesAutoresizingMaskIntoConstraints="NO" id="RHt-Ob-zFW">
                                 <rect key="frame" x="212" y="163" width="75" height="75"/>
                             </imageView>
@@ -76,6 +66,16 @@
                                     <segue destination="Nu5-lS-uOh" kind="presentation" modalTransitionStyle="coverVertical" id="9A4-jf-yYj"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rcD-gy-EbJ">
+                                <rect key="frame" x="55" y="259" width="211" height="70"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="50"/>
+                                <state key="normal" title="スタート">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="start:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="uxu-O9-BQb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -105,15 +105,9 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="prairie.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="2xd-8I-eHG">
                                 <rect key="frame" x="0.0" y="-3" width="320" height="573"/>
                             </imageView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ハエをタップして出来るだけ早くハエを駆除しろ！　　　　　　　　　　　　　　　ただし、ピンク色のハエは毒をもっているから触っちゃダメだよ！　　　　　　60秒以内にピンク色以外の全てのハエを潰せないとタイムオーバーだよ！" translatesAutoresizingMaskIntoConstraints="NO" id="SU9-NI-7x9">
-                                <rect key="frame" x="16" y="112" width="288" height="293"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59W-bO-NcC">
-                                <rect key="frame" x="134" y="444" width="53" height="30"/>
-                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="20"/>
+                                <rect key="frame" x="119" y="421" width="83" height="44"/>
+                                <fontDescription key="fontDescription" name="HiraMinProN-W6" family="Hiragino Mincho ProN" pointSize="30"/>
                                 <state key="normal" title="戻る">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -122,6 +116,12 @@
                                     <segue destination="vXZ-lx-hvc" kind="presentation" modalTransitionStyle="coverVertical" id="zlY-mi-uCN"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="ハエをタップして出来るだけ早くハエを駆除しろ！　　　　　　　　　　　　　　　ただし、ピンク色のハエは毒をもっているから触っちゃダメだよ！　　　　　　60秒以内にピンク色以外の全てのハエを潰せないとタイムオーバー！" translatesAutoresizingMaskIntoConstraints="NO" id="SU9-NI-7x9">
+                                <rect key="frame" x="16" y="56" width="288" height="351"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="HiraKakuProN-W6" family="Hiragino Kaku Gothic ProN" pointSize="25"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>

@@ -15,6 +15,49 @@
 
 @implementation ResultViewController
 
+-(void)viewWillAppear:(BOOL)animated{
+    
+    timer = [NSTimer scheduledTimerWithTimeInterval:2.0
+                                              target:self
+                                            selector:@selector(onTime)
+                                            userInfo:nil
+                                             repeats:YES];
+    
+}
+
+-(void)onTime{
+    
+    [UIView animateWithDuration:0.6
+                          delay:0.0
+                        options:UIViewAnimationOptionCurveEaseInOut
+                     animations:^{
+                         
+                         scoreLabel.alpha = 0.0;
+                         
+                     }
+                     completion:^(BOOL finishued){
+                         
+                         [UIView animateWithDuration:0.6
+                                               delay:0.0
+                                             options:UIViewAnimationOptionCurveEaseInOut
+                                          animations:^{
+                                              
+                                              scoreLabel.alpha = 1.0;
+                                              
+                                          }
+                                          completion:nil];
+                         
+                     }];
+    
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    
+    [timer isValid];
+    //    button = nil;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -65,6 +108,9 @@
     
     [audio play];
     
+    [startSound play];
+
+    
     GameViewController *GameView = [self.storyboard instantiateViewControllerWithIdentifier:@"Game"];
     GameView.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     [self presentViewController:GameView animated:YES completion:nil];
@@ -72,6 +118,9 @@
 }
 
 -(IBAction)end:(id)sender{
+    
+    [startSound play];
+
     
     ViewController *View = [self.storyboard instantiateViewControllerWithIdentifier:@"View"];
     View.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;

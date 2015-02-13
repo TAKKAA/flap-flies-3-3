@@ -26,7 +26,7 @@
 
 -(void)onTime{
     
-    [UIView animateWithDuration:0.6
+    [UIView animateWithDuration:0.5
                           delay:0.0
                         options:UIViewAnimationOptionCurveEaseInOut
                      animations:^{
@@ -36,7 +36,7 @@
                      }
                      completion:^(BOOL finishued){
                          
-    [UIView animateWithDuration:0.6
+    [UIView animateWithDuration:0.3
                           delay:0.0
                           options:UIViewAnimationOptionCurveEaseInOut
                           animations:^{
@@ -90,13 +90,20 @@
     [self presentViewController:GameView animated:YES completion:nil];
     
     
-    NSString *path = [[NSBundle mainBundle] pathForResource:@"fly1" ofType:@"mp3"];
-    NSURL *url = [NSURL fileURLWithPath:path];
-    audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url error:nil];
-    [audio prepareToPlay];
-    [audio setNumberOfLoops:-1];
-    [audio play];
+    NSString *path1 = [[NSBundle mainBundle] pathForResource:@"button5" ofType:@"mp3"];
+    NSURL *url1 = [NSURL fileURLWithPath:path1];
+    startSound = [[AVAudioPlayer alloc] initWithContentsOfURL:url1 error:nil];
+    [startSound play];
     
+    
+    
+//    NSString *path2 = [[NSBundle mainBundle] pathForResource:@"fly1" ofType:@"mp3"];
+//    NSURL *url2 = [NSURL fileURLWithPath:path2];
+//    audio = [[AVAudioPlayer alloc] initWithContentsOfURL:url2 error:nil];
+//    [audio prepareToPlay];
+//    [audio setNumberOfLoops:-1];
+//    [audio play];
+//    
 }
 
 
