@@ -74,6 +74,7 @@
     float angle = 300;
     float rad = angle * M_PI / 180;
     fly2.transform = CGAffineTransformMakeRotation(rad);
+//    fly2.frame = CGRectMake(212, 163, 400, 400);
     
 }
 

@@ -86,6 +86,9 @@
         
         scoreLabel.text = @"You were killed";
         
+        scoreLabel.textColor = [UIColor redColor];
+
+        
         star1.hidden = YES;
         star2.hidden = YES;
         
