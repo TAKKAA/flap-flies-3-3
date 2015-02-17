@@ -244,7 +244,7 @@
         
         NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
         
-        [defaults setFloat:0.0 forKey:@"score"];
+        [defaults setFloat: -1.0 forKey:@"score"];
         
         [self performSelector:@selector(transition) withObject:nil afterDelay:1.5];
 
@@ -258,9 +258,8 @@
         
         killLabel.hidden = NO;
         
-        killLabel.text = @"You were killed";
-        
-        
+        killLabel.text = @"ウイルスに感染した...";
+            
         [audio stop];
         
         for (int i = 0; i < 10; i++) {

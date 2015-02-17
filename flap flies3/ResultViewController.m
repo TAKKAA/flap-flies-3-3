@@ -33,6 +33,9 @@
                      animations:^{
                          
                          scoreLabel.alpha = 0.0;
+                         star1.alpha = 0.0;
+                         star2.alpha = 0.0;
+
                          
                      }
                      completion:^(BOOL finishued){
@@ -43,6 +46,9 @@
                                           animations:^{
                                               
                                               scoreLabel.alpha = 1.0;
+                                              star1.alpha = 1.0;
+                                              star2.alpha = 1.0;
+
                                               
                                           }
                                           completion:nil];
@@ -82,12 +88,11 @@
         
     }
     
-    if (score == 0) {
+    if (score == -1.0) {
         
-        scoreLabel.text = @"You were killed";
+        scoreLabel.text = @"ウイルスに感染した";
         
         scoreLabel.textColor = [UIColor redColor];
-
         
         star1.hidden = YES;
         star2.hidden = YES;
@@ -102,6 +107,12 @@
         
         star1.hidden = NO;
         star2.hidden = NO;
+        
+    }
+    
+    if (highScore == 0.0) {
+        
+        highScoreLabel.text = @"記録なし";
         
     }
     
