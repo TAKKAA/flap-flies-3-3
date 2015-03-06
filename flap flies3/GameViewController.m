@@ -51,15 +51,15 @@
         [audio setNumberOfLoops:-1];
         [audio play];
     
-    for (int i = 0; i<15; i++) {
+    for (int i = 10; i<25; i++) {
         
         //位置
         x[i] = arc4random() % 261 + 20;
         y[i] = arc4random() % 529 + 20;
         
         //スピード
-        speedX[i] = arc4random() % 15 + 15;
-        speedY[i] = arc4random() % 15 + 15;
+        speedX[i] = arc4random() % 20 + 15;
+        speedY[i] = arc4random() % 20 + 15;
         
         //初期角度
         angles[i] = arc4random() % 360;
@@ -74,6 +74,7 @@
     
     [self makeFly];
     
+//    [self.view bringSubviewToFront:timeLabel];
 }
 
 
@@ -100,9 +101,9 @@
 
 -(void)makeFly{
     
-    for (int i = 0; i < 15; i++) {
+    for (int i = 10; i < 25; i++) {
         
-        if (i < 10) {
+        if (i < 20) {
             
             flyNumber[i] = [UIImage imageNamed:@"fly1.png"];
             flies[i] = [[UIImageView alloc] initWithImage:flyNumber[i]];
@@ -114,7 +115,7 @@
             
         }
         
-        if (i >= 10) {
+        if (i >= 20) {
             
             flyNumber[i] = [UIImage imageNamed:@"fly2.png"];
             flies[i] = [[UIImageView alloc] initWithImage:flyNumber[i]];
@@ -171,7 +172,7 @@
 
 -(void)change{
     
-    for (int i = 0; i < 15 ; i++) {
+    for (int i = 10; i < 25 ; i++) {
         
         flies[i].transform = CGAffineTransformRotate(flies[i].transform, M_PI_2);
         angles[i] += 90;
@@ -190,7 +191,7 @@
     
     timeLabel.text = [NSString stringWithFormat:@"%.1f",count];
     
-    for (int i = 0; i < 15; i++) {
+    for (int i = 10; i < 25; i++) {
         
         if (count < 0) {
             
@@ -237,8 +238,8 @@
         
     }
     
-    if (flies[10].hidden == YES || flies[11].hidden == YES ||flies[12].hidden == YES || flies[13].hidden == YES ||
-        flies[14].hidden == YES) {
+    if (flies[20].hidden == YES || flies[21].hidden == YES ||flies[22].hidden == YES || flies[23].hidden == YES ||
+        flies[24].hidden == YES) {
         
         [timer invalidate];
         
@@ -262,7 +263,7 @@
             
         [audio stop];
         
-        for (int i = 0; i < 10; i++) {
+        for (int i = 10; i < 20; i++) {
             
             flies[i].userInteractionEnabled = NO;
             
@@ -271,9 +272,9 @@
     }
     
     
-    if (flies[0].hidden == YES && flies[1].hidden == YES &&  flies[2].hidden == YES && flies[3].hidden == YES
-        && flies[4].hidden == YES && flies[5].hidden == YES && flies[6].hidden == YES && flies[7].hidden == YES
-        &&flies[8].hidden == YES && flies[9].hidden == YES) {
+    if (flies[10].hidden == YES && flies[11].hidden == YES &&  flies[12].hidden == YES && flies[13].hidden == YES
+        && flies[14].hidden == YES && flies[15].hidden == YES && flies[16].hidden == YES && flies[17].hidden == YES
+        &&flies[18].hidden == YES && flies[19].hidden == YES) {
         
         [timer invalidate];
         
@@ -300,7 +301,7 @@
         [audio stop];
         
         
-        for (int i = 10; i < 15; i++) {
+        for (int i = 20; i < 25; i++) {
             
             flies[i].userInteractionEnabled = NO;
             
@@ -349,6 +350,16 @@
     
 }
 
+//- (BOOL)shouldFinishGame:(NSArray *)files{
+//    for (int i = 10; i < 20; i++) {
+//        UIImageView *fly = files[i];
+//        if (!fly.hidden)
+//            return NO;
+//    }
+//    
+//    return YES;
+//}
+
 -(void)transition{
     
     ResultViewController *ResultView = [self.storyboard instantiateViewControllerWithIdentifier:@"ResultView"];
@@ -359,7 +370,7 @@
 
 -(void)finish{
     
-    for (int i = 0; i < 15; i++) {
+    for (int i = 10; i < 25; i++) {
         
         flies[i].userInteractionEnabled = NO;
     }
@@ -373,8 +384,8 @@
     if (count < 0) {
         
     }
-    else if (flies[10].hidden == YES || flies[11].hidden == YES ||flies[12].hidden == YES || flies[13].hidden == YES ||
-             flies[14].hidden == YES){
+    else if (flies[20].hidden == YES || flies[21].hidden == YES ||flies[22].hidden == YES || flies[23].hidden == YES ||
+             flies[24].hidden == YES){
         
     }
     else{
@@ -385,19 +396,33 @@
         
         tagNumber = touch.view.tag;
         
-        [self performSelector:@selector(death) withObject:nil afterDelay:0.3];
+        NSLog(@"%@", @(tagNumber));
+        
+//        [self performSelector:@selector(death) withObject:nil afterDelay:0.3];
+
+        [self removeFlyWithTag:touch.view.tag];
         
         NSLog(@"%long",touch.view.tag);
         
     }
     
+    
 }
 
--(void)death{
+- (void)removeFlyWithTag:(NSInteger)tag{
     
-    flies[tagNumber].hidden = YES;
-    
+    double delayInSeconds = 0.3;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
+    dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+        flies[tag].hidden = YES;
+    });
 }
+
+//-(void)death{
+//        
+//        flies[tagNumber].hidden = YES;
+//        
+//    }
 
 - (void)didReceiveMemoryWarning {
     

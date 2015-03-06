@@ -33,6 +33,9 @@
 		1ED2CE251A87B263009C6F98 /* dead_fly.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE241A87B263009C6F98 /* dead_fly.png */; };
 		1ED2CE271A8A4018009C6F98 /* prairie.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE261A8A4018009C6F98 /* prairie.jpg */; };
 		1ED2CE291A8DEEB9009C6F98 /* button5.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE281A8DEEB9009C6F98 /* button5.mp3 */; };
+		1ED2CE3D1AA86486009C6F98 /* launch@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE3C1AA86486009C6F98 /* launch@2x.png */; };
+		1ED2CE3F1AA86806009C6F98 /* ios in Resources */ = {isa = PBXBuildFile; fileRef = 1ED2CE3E1AA86806009C6F98 /* ios */; };
+		1ED2CE421AA86E83009C6F98 /* ExplanationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ED2CE411AA86E83009C6F98 /* ExplanationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,10 @@
 		1ED2CE241A87B263009C6F98 /* dead_fly.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dead_fly.png; sourceTree = "<group>"; };
 		1ED2CE261A8A4018009C6F98 /* prairie.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = prairie.jpg; sourceTree = "<group>"; };
 		1ED2CE281A8DEEB9009C6F98 /* button5.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button5.mp3; sourceTree = "<group>"; };
+		1ED2CE3C1AA86486009C6F98 /* launch@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "launch@2x.png"; sourceTree = "<group>"; };
+		1ED2CE3E1AA86806009C6F98 /* ios */ = {isa = PBXFileReference; lastKnownFileType = folder; path = ios; sourceTree = "<group>"; };
+		1ED2CE401AA86E83009C6F98 /* ExplanationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ExplanationViewController.h; sourceTree = "<group>"; };
+		1ED2CE411AA86E83009C6F98 /* ExplanationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ExplanationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +138,8 @@
 				1E634EF01A76293400DAB55A /* GameViewController.m */,
 				1E634EF21A7CBEDA00DAB55A /* ResultViewController.h */,
 				1E634EF31A7CBEDA00DAB55A /* ResultViewController.m */,
+				1ED2CE401AA86E83009C6F98 /* ExplanationViewController.h */,
+				1ED2CE411AA86E83009C6F98 /* ExplanationViewController.m */,
 				1E634ED11A7628B000DAB55A /* Main.storyboard */,
 				1E634ED41A7628B000DAB55A /* Images.xcassets */,
 				1E634ED61A7628B000DAB55A /* LaunchScreen.xib */,
@@ -142,6 +151,8 @@
 		1E634EC71A7628B000DAB55A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1ED2CE3E1AA86806009C6F98 /* ios */,
+				1ED2CE3C1AA86486009C6F98 /* launch@2x.png */,
 				1ED2CE281A8DEEB9009C6F98 /* button5.mp3 */,
 				1ED2CE261A8A4018009C6F98 /* prairie.jpg */,
 				1ED2CE241A87B263009C6F98 /* dead_fly.png */,
@@ -270,6 +281,7 @@
 				1ED2CE1D1A837F56009C6F98 /* Default-568h@2x.png in Resources */,
 				1ED2CE291A8DEEB9009C6F98 /* button5.mp3 in Resources */,
 				1E0E07BF1A7EFF40001342C5 /* flap-flay-04.png in Resources */,
+				1ED2CE3D1AA86486009C6F98 /* launch@2x.png in Resources */,
 				1E634ED81A7628B000DAB55A /* LaunchScreen.xib in Resources */,
 				1E634ED51A7628B000DAB55A /* Images.xcassets in Resources */,
 				1E0E07BA1A7E82E1001342C5 /* flap-flay-02.png in Resources */,
@@ -278,6 +290,7 @@
 				1ED2CE1F1A84C25A009C6F98 /* fly2.png in Resources */,
 				1ED2CE271A8A4018009C6F98 /* prairie.jpg in Resources */,
 				1E634EEE1A76291700DAB55A /* fly1.png in Resources */,
+				1ED2CE3F1AA86806009C6F98 /* ios in Resources */,
 				1E0E07C01A7EFF40001342C5 /* flap-flay-05.png in Resources */,
 				1E0E07BC1A7E87A7001342C5 /* flap-flay-03.png in Resources */,
 			);
@@ -299,6 +312,7 @@
 			files = (
 				1E634EF11A76293400DAB55A /* GameViewController.m in Sources */,
 				1E634ED01A7628B000DAB55A /* ViewController.m in Sources */,
+				1ED2CE421AA86E83009C6F98 /* ExplanationViewController.m in Sources */,
 				1E634ECD1A7628B000DAB55A /* AppDelegate.m in Sources */,
 				1E634EF41A7CBEDA00DAB55A /* ResultViewController.m in Sources */,
 				1E634ECA1A7628B000DAB55A /* main.m in Sources */,

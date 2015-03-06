@@ -46,20 +46,20 @@ float count;
     
     
     //最初の位置
-    float x[15];
-    float y[15];
+    float x[25];
+    float y[25];
     
-    float vx[15];
-    float vy[15];
+    float vx[25];
+    float vy[25];
     
-    float angles[15];
-    float rad[15];
+    float angles[25];
+    float rad[25];
         
-    float speedX[15];
-    float speedY[15];
+    float speedX[25];
+    float speedY[25];
     
-    UIImage *flyNumber[15];
-    UIImageView *flies[15];
+    UIImage *flyNumber[25];
+    UIImageView *flies[25];
     
     
 }

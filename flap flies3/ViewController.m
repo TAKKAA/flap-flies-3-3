@@ -76,6 +76,11 @@
     fly2.transform = CGAffineTransformMakeRotation(rad);
 //    fly2.frame = CGRectMake(212, 163, 400, 400);
     
+    if (highScore == 0.0) {
+        
+        highScoreLabel.text = @"記録なし";
+    }
+    
 }
 
 //ステータスバー
